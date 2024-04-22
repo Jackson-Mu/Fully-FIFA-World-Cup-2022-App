@@ -8,7 +8,6 @@ plotly
 shapash
 scikit-learn
 plotly
-email
 smtplib
 tensorflow
 codecarbon
