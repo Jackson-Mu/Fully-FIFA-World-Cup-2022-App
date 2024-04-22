@@ -1,0 +1,14 @@
+streamlit
+pandas
+Pillow
+matplotlib
+seaborn
+numpy
+plotly
+shapash
+scikit-learn
+plotly
+email
+smtplib
+tensorflow
+codecarbon
