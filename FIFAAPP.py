@@ -56,16 +56,20 @@ st.set_page_config(
 # Title
 st.title("FIFA World Cup 2022 Data Analysis")
 
-st.markdown("<p style='text-align: center; font-family: Comic Sans MS; font-size: 24px;'><b>Select a page below to explore:</b></p>", unsafe_allow_html=True)
-
+# Initialize session state
 if 'app_mode' not in st.session_state:
     st.session_state.app_mode = 'Welcome'
 
+st.markdown("<p style='text-align: center; font-family: Comic Sans MS; font-size: 24px;'><b>Select a page in a sidebar to explore:</b></p>", unsafe_allow_html=True)
+
+st.sidebar.markdown("<h2 style='color: yellow; text-align: center; border-bottom: 2px solid yellow;'>Explore FIFA World Cup 2022 Data Analysis</h2>", unsafe_allow_html=True)
+
+st.sidebar.markdown("Navigate through below sections:")
 # Page selection buttons
 button_labels = ['Welcome 🏠', 'Introduction 📖', 'Visualization 📊', 'Prediction 📈', 'Feature of Importance & Shap 📊', 'MLflow & Deployment 🚀', 'Conclusion 🏁']
+selected_button = st.sidebar.radio("Select a page below to explore:", button_labels)
 
-selected_button = st.radio("Select a page below to explore:", button_labels)
-
+# Set the selected page based on the button clicked
 if selected_button == 'Welcome 🏠':
     st.session_state.app_mode = 'Welcome'
 elif selected_button == 'Introduction 📖':
@@ -138,8 +142,7 @@ st.markdown(
 # Welcome page content
 if st.session_state.app_mode == 'Welcome':
     # Sidebar content for Welcome page
-    st.sidebar.header("Welcome to FIFA World Cup 2022 Data Analysis")
-    st.sidebar.markdown("Navigate through this section:")
+    st.sidebar.markdown("<p style='color: yellow; font-family: Arial, sans-serif;'>Navigate below Welcome sidebar:</p>", unsafe_allow_html=True)
     st.sidebar.markdown("[Welcome](#welcome-section)")
 
     # Welcome section
@@ -175,6 +178,7 @@ if st.session_state.app_mode == 'Welcome':
 # Introduction Page
 elif st.session_state.app_mode == 'Introduction':
     st.subheader("Introduction")
+    st.sidebar.markdown("<p style='color: yellow; font-family: Arial, sans-serif;'>Navigate below Introduction sidebar:</p>", unsafe_allow_html=True)
 
     # Welcoming message and image
     st.markdown("<h1 style='text-align: center;'>Habibi, Enjoy FIFA World Cup 2022 Data Analysis Dashboard!</h1>", unsafe_allow_html=True)
