@@ -59,7 +59,7 @@ st.title("FIFA World Cup 2022 Data Analysis")
 if 'app_mode' not in st.session_state:
     st.session_state.app_mode = 'Welcome'
 
-st.markdown("<p style='text-align: center; font-family: Comic Sans MS; font-size: 24px;'><b>Select a page in a sidebar to explore:</b></p>", unsafe_allow_html=True)
+
 
 st.sidebar.markdown("<h2 style='color: yellow; text-align: center; border-bottom: 2px solid yellow;'>Explore FIFA World Cup 2022 Data Analysis</h2>", unsafe_allow_html=True)
 
