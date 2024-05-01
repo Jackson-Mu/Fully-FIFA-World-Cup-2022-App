@@ -197,30 +197,28 @@ elif st.session_state.app_mode == 'Introduction':
 
     
 
+
     # Set title font, color, and style
-    import streamlit as st
-
-# Set title font, color, and style
-st.markdown(
-    """
-    <h1 style='text-align: left; color: #1E88E5; font-family: "Arial Black", Gadget, sans-serif;'>
-    🎯 Objectives
-    </h1>
-    """,
-    unsafe_allow_html=True,
-)
-
-# Describe objectives with concise and clear language
-st.markdown(
-    """
-    <p style='text-align: justify; color: #333333; font-family: "Arial Narrow", sans-serif; font-size: 18px;'>
-    <b>Our mission is to understand which team features affect how many goals teams score in the FIFA World Cup 2022.</b> 
-    We're particularly interested in discovering what makes teams score more goals, 
-    as well as exploring other factors like possession to learn about team dynamics and strategies.
-    </p>
-    """,
-    unsafe_allow_html=True,
-)
+    st.markdown(
+        """
+        <h1 style='text-align: left; color: #1E88E5; font-family: "Arial Black", Gadget, sans-serif;'>
+        🎯 Objectives
+        </h1>
+        """,
+        unsafe_allow_html=True,
+    )
+    
+    # Describe objectives with concise and clear language
+    st.markdown(
+        """
+        <p style='text-align: justify; color: #333333; font-family: "Arial Narrow", sans-serif; font-size: 18px;'>
+        <b>Our mission is to understand which team features affect how many goals teams score in the FIFA World Cup 2022.</b> 
+        We're particularly interested in discovering what makes teams score more goals, 
+        as well as exploring other factors like possession to learn about team dynamics and strategies.
+        </p>
+        """,
+        unsafe_allow_html=True,
+    )
 
 
 
