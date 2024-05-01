@@ -63,31 +63,28 @@ sidebar_header_style = (
     "text-align: center; border-bottom: 2px solid yellow;"
 )
 
-# Styling for sidebar buttons
-sidebar_button_style = "font-weight: bold; font-size: 16px;"
-
 # Sidebar
 st.sidebar.markdown("<h2 style='" + sidebar_header_style + "'>Explore FIFA World Cup 2022 Data Analysis</h2>", unsafe_allow_html=True)
 st.sidebar.markdown("Navigate through below sections:")
 
 # Page selection buttons
 button_labels = ['Welcome 🏠', 'Introduction 📖', 'Visualization 📊', 'Prediction 📈', 'Feature of Importance & Shap 📊', 'MLflow & Deployment 🚀', 'Conclusion 🏁']
-selected_button = st.sidebar.radio("Select a page below to explore:", button_labels)
+selected_button = st.sidebar.radio("Select a page below to explore:", [f"<span style='font-weight:bold;font-size:16px;'>{label}</span>" for label in button_labels], unsafe_allow_html=True)
 
 # Set the selected page based on the button clicked
-if selected_button == 'Welcome 🏠':
+if selected_button == button_labels[0]:
     st.session_state.app_mode = 'Welcome'
-elif selected_button == 'Introduction 📖':
+elif selected_button == button_labels[1]:
     st.session_state.app_mode = 'Introduction'
-elif selected_button == 'Visualization 📊':
+elif selected_button == button_labels[2]:
     st.session_state.app_mode = 'Visualization'
-elif selected_button == 'Prediction 📈':
+elif selected_button == button_labels[3]:
     st.session_state.app_mode = 'Prediction'
-elif selected_button == 'Feature of Importance & Shap 📊':
+elif selected_button == button_labels[4]:
     st.session_state.app_mode = 'Feature of Importance & Shap'
-elif selected_button == 'MLflow & Deployment 🚀':
+elif selected_button == button_labels[5]:
     st.session_state.app_mode = 'MLflow & Deployment'
-elif selected_button == 'Conclusion 🏁':
+elif selected_button == button_labels[6]:
     st.session_state.app_mode = 'Conclusion'
 
 # Custom CSS for styling
