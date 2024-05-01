@@ -42,7 +42,6 @@ audio_fifa_5 = "hayya-hayya-better-together-fifa-world-cup-2022-8d-audio-version
 audio_1= "sound_effect.mp3"
 video_intro = "FIFA_World_Cup_2022_Soundtrack.mp4"
 video_concu = "Argentina v France _ FIFA World Cup Qatar 2022.mp4"
-
 import streamlit as st
 
 # Set page configuration
@@ -53,13 +52,24 @@ st.set_page_config(
 
 # Title
 st.title("FIFA World Cup 2022 Data Analysis")
+
 # Initialize session state
 if 'app_mode' not in st.session_state:
     st.session_state.app_mode = 'Welcome'
 
-st.sidebar.markdown("<h2 style='color: yellow; text-align: center; border-bottom: 2px solid yellow;'>Explore FIFA World Cup 2022 Data Analysis</h2>", unsafe_allow_html=True)
+# Styling for sidebar headers
+sidebar_header_style = (
+    "color: black; background-color: yellow;"
+    "text-align: center; border-bottom: 2px solid yellow;"
+)
 
+# Styling for sidebar buttons
+sidebar_button_style = "font-weight: bold; font-size: 16px;"
+
+# Sidebar
+st.sidebar.markdown("<h2 style='" + sidebar_header_style + "'>Explore FIFA World Cup 2022 Data Analysis</h2>", unsafe_allow_html=True)
 st.sidebar.markdown("Navigate through below sections:")
+
 # Page selection buttons
 button_labels = ['Welcome 🏠', 'Introduction 📖', 'Visualization 📊', 'Prediction 📈', 'Feature of Importance & Shap 📊', 'MLflow & Deployment 🚀', 'Conclusion 🏁']
 selected_button = st.sidebar.radio("Select a page below to explore:", button_labels)
