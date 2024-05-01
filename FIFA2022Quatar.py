@@ -409,19 +409,7 @@ elif st.session_state.app_mode == 'Introduction':
         st.warning("The dataset has a low level of completeness, which may affect the reliability of our analysis.")
 
     
-    # Conclusion
-    st.markdown("### Recap")
     
-    # Describe conclusion with concise and clear language
-    st.markdown(
-        """
-        <p style='color: #333333; font-family: Arial, sans-serif; font-size: 16px;'>
-        In this dashboard, we explored the FIFA World Cup 2022 dataset, focusing on key variables like possession, number of goals, corners, and defensive pressures. 
-        We also assessed the cleanliness of our dataset for reliability and usability.
-        </p>
-        """,
-        unsafe_allow_html=True,
-    )
     # Conclusion
     st.markdown("### Recap")
     
