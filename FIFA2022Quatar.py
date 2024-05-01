@@ -208,11 +208,10 @@ elif st.session_state.app_mode == 'Introduction':
         unsafe_allow_html=True,
     )
     
-    # Describe objectives with concise and clear language
     st.markdown(
         """
-        <p style='text-align: justify; color: #333333; font-family: "Arial Narrow", sans-serif; font-size: 18px;'>
-        <b>Our mission is to understand which team features affect how many goals teams score in the FIFA World Cup 2022.</b> 
+        <p style='text-align: justify; color: #FFFFFF; font-family: "Arial Narrow", sans-serif; font-size: 18px;'>
+        <b style='color: #FFFFFF;'>Our mission is to understand which team features affect how many goals teams score in the FIFA World Cup 2022.</b> 
         We're particularly interested in discovering what makes teams score more goals, 
         as well as exploring other factors like possession to learn about team dynamics and strategies.
         </p>
@@ -222,16 +221,20 @@ elif st.session_state.app_mode == 'Introduction':
 
 
 
+
     # Key Variables
     st.markdown("### Key Variables")
-    st.markdown("Below are the key variables we emphasize in our analysis, though there are more additional variables considered:", unsafe_allow_html=True, text_color="#333333")
+    st.markdown(
+        "Below are the key variables we emphasize in our analysis, though there are more additional variables considered:",
+        unsafe_allow_html=True,
+    )
+    st.markdown("- <span style='color: #333333;'>Team</span>", unsafe_allow_html=True)
+    st.markdown("- <span style='color: #333333;'>Possession</span>", unsafe_allow_html=True)
+    st.markdown("- <span style='color: #333333;'>Number of Goals</span>", unsafe_allow_html=True)
+    st.markdown("- <span style='color: #333333;'>Corners</span>", unsafe_allow_html=True)
+    st.markdown("- <span style='color: #333333;'>On Target Attempts</span>", unsafe_allow_html=True)
+    st.markdown("- <span style='color: #333333;'>Defensive Pressures Applied</span>", unsafe_allow_html=True)
 
-    st.markdown("- Team")
-    st.markdown("- Possession")
-    st.markdown("- Number of Goals")
-    st.markdown("- Corners")
-    st.markdown("- On Target Attempts")
-    st.markdown("- Defensive Pressures Applied")
 
     # Description of Data
     st.markdown("### Description of Data")
