@@ -42,6 +42,7 @@ audio_fifa_5 = "hayya-hayya-better-together-fifa-world-cup-2022-8d-audio-version
 audio_1= "sound_effect.mp3"
 video_intro = "FIFA_World_Cup_2022_Soundtrack.mp4"
 video_concu = "Argentina v France _ FIFA World Cup Qatar 2022.mp4"
+
 import streamlit as st
 
 # Set page configuration
@@ -69,22 +70,22 @@ st.sidebar.markdown("Navigate through below sections:")
 
 # Page selection buttons
 button_labels = ['Welcome 🏠', 'Introduction 📖', 'Visualization 📊', 'Prediction 📈', 'Feature of Importance & Shap 📊', 'MLflow & Deployment 🚀', 'Conclusion 🏁']
-selected_button = st.sidebar.radio("Select a page below to explore:", [f"<span style='font-weight:bold;font-size:16px;'>{label}</span>" for label in button_labels], unsafe_allow_html=True)
+selected_button = st.sidebar.radio("Select a page below to explore:", button_labels)
 
 # Set the selected page based on the button clicked
-if selected_button == button_labels[0]:
+if selected_button == 'Welcome 🏠':
     st.session_state.app_mode = 'Welcome'
-elif selected_button == button_labels[1]:
+elif selected_button == 'Introduction 📖':
     st.session_state.app_mode = 'Introduction'
-elif selected_button == button_labels[2]:
+elif selected_button == 'Visualization 📊':
     st.session_state.app_mode = 'Visualization'
-elif selected_button == button_labels[3]:
+elif selected_button == 'Prediction 📈':
     st.session_state.app_mode = 'Prediction'
-elif selected_button == button_labels[4]:
+elif selected_button == 'Feature of Importance & Shap 📊':
     st.session_state.app_mode = 'Feature of Importance & Shap'
-elif selected_button == button_labels[5]:
+elif selected_button == 'MLflow & Deployment 🚀':
     st.session_state.app_mode = 'MLflow & Deployment'
-elif selected_button == button_labels[6]:
+elif selected_button == 'Conclusion 🏁':
     st.session_state.app_mode = 'Conclusion'
 
 # Custom CSS for styling
