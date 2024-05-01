@@ -221,8 +221,6 @@ elif st.session_state.app_mode == 'Introduction':
 
 
 
-
-
     # Key Variables
     st.markdown("### Key Variables")
     st.markdown(
@@ -405,9 +403,9 @@ elif st.session_state.app_mode == 'Introduction':
     st.write(f"Overall completeness ratio: {completeness_ratio:.2f}")
 
     if completeness_ratio >= 0.85:
-        st.success("The dataset has a high level of completeness, providing us with reliable data for analysis.", unsafe_allow_html=True, text_color="#333333")
+        st.success("<p style='color: #333333;'>The dataset has a high level of completeness, providing us with reliable data for analysis.</p>", unsafe_allow_html=True)
     else:
-        st.warning("The dataset has a low level of completeness, which may affect the reliability of our analysis.", unsafe_allow_html=True, text_color="#333333")
+        st.warning("<p style='color: #333333;'>The dataset has a low level of completeness, which may affect the reliability of our analysis.</p>", unsafe_allow_html=True)
 
 
     # Conclusion
@@ -423,6 +421,7 @@ elif st.session_state.app_mode == 'Introduction':
         """,
         unsafe_allow_html=True,
     )
+
 
 elif st.session_state.app_mode == 'Visualization':
     # Play FIFA World Cup song
