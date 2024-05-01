@@ -167,14 +167,15 @@ if st.session_state.app_mode == 'Welcome':
 
     # Disclaimer message (initially hidden)
     if st.sidebar.button("Show Disclaimer"):
-        st.sidebar.markdown(
-            """
-            <div class="sidebar-item">
-                <p>⚠️ Disclaimer: We're not predicting the game winner here. Instead, we're focusing on what increases the likelihood to score more goals in a game, which would basically also increases a team's chances of winning that game.</p>
-            </div>
-            """,
-            unsafe_allow_html=True
-        )
+    st.sidebar.markdown(
+        """
+        <div style="font-family: Arial, sans-serif;">
+            <p style="font-weight: bold;">⚠️ Disclaimer:</p>
+            <p>We're not predicting game winners. Instead, we're analyzing factors that increase goal-scoring likelihood, which also enhances a team's chance of winning.</p>
+        </div>
+        """,
+        unsafe_allow_html=True
+    )
 
 
 # Introduction Page
@@ -194,12 +195,30 @@ elif st.session_state.app_mode == 'Introduction':
     st.sidebar.audio(audio_fifa_3, format='audio/mp3')
     st.video(video_intro, format='video/mp4')
 
-    # Objectives
-    st.header("🎯 Objectives")
+    
 
-    st.markdown("""
-    Our goal is to analyze key factors affecting team performance in the FIFA World Cup 2022. We're particularly interested in understanding what influences the number of goals scored by each team. We're also exploring other factors like possession to gain insights into team dynamics and strategies.
-    """)
+    # Set title font, color, and style
+    st.markdown(
+        """
+        <h1 style='text-align: center; color: #1E88E5; font-family: "Arial Black", Gadget, sans-serif;'>
+        🎯 Objectives
+        </h1>
+        """,
+        unsafe_allow_html=True,
+    )
+    
+    # Describe objectives with concise and clear language
+    st.markdown(
+        """
+        <p style='text-align: justify; color: #333333; font-family: Arial, sans-serif; font-size: 16px;'>
+        Our mission is to understand which team features affect how many goals teams score in the FIFA World Cup 2022. 
+        We're particularly interested in discovering what makes teams score more goals, 
+        as well as exploring other factors like possession to learn about team dynamics and strategies.
+        </p>
+        """,
+        unsafe_allow_html=True,
+    )
+
 
     # Key Variables
     st.markdown("### Key Variables")
