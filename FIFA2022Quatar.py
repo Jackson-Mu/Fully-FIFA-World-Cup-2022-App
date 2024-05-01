@@ -167,14 +167,14 @@ if st.session_state.app_mode == 'Welcome':
 
     # Disclaimer message (initially hidden)
     if st.sidebar.button("Show Disclaimer"):
-    st.sidebar.markdown(
-        """
-        <div style="font-family: Arial, sans-serif;">
-            <p style="font-weight: bold;">⚠️ Disclaimer:</p>
-            <p>We're not predicting game winners. Instead, we're analyzing factors that increase goal-scoring likelihood, which also enhances a team's chance of winning.</p>
-        </div>
-        """,
-        unsafe_allow_html=True
+        st.sidebar.markdown(
+            """
+            <div style="font-family: Arial, sans-serif;">
+                <p style="font-weight: bold;">⚠️ Disclaimer:</p>
+                <p>We're not predicting game winners. Instead, we're analyzing factors that increase goal-scoring likelihood, which also enhances a team's chance of winning.</p>
+            </div>
+            """,
+            unsafe_allow_html=True
     )
 
 
