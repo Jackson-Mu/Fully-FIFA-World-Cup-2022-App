@@ -223,7 +223,7 @@ elif st.session_state.app_mode == 'Introduction':
 
 
     # Key Variables
-    st.markdown("### Key Variables
+    st.markdown("### Key Variables")
     st.markdown("Below are the key variables we emphasize in our analysis, though there are more additional variables considered:", unsafe_allow_html=True, text_color="#333333")
 
     st.markdown("- Team")
