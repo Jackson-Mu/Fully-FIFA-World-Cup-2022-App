@@ -189,7 +189,7 @@ elif st.session_state.app_mode == 'Introduction':
 
 
     st.markdown("<p style='font-family: Arial; font-size: 16px;'>💡 Pro Tip:</p>", unsafe_allow_html=True)
-    st.markdown("<p style='font-family: Comic Sans MS; font-size: 20px; color: #FF1493;'>🎵 Enjoy the below chosen FIFA World Cup song for you, in the left side bar! 🎉 Feel free to adjust the volume 🔊 or stop the song ⏹️ whenever you want. 🕺💃</p>", unsafe_allow_html=True)
+    st.markdown("<p style='font-family: Comic Sans MS; font-size: 20px; color: #FF1493;'>🎵 Enjoy the chosen FIFA World Cup song for you, in the left side bar! 🎉 Feel free to adjust the volume 🔊 or stop the song ⏹️ whenever you want. 🕺💃</p>", unsafe_allow_html=True)
 
     st.sidebar.subheader("Play FIFA World Cup Song")
     st.sidebar.audio(audio_fifa_3, format='audio/mp3')
@@ -223,8 +223,9 @@ elif st.session_state.app_mode == 'Introduction':
 
 
     # Key Variables
-    st.markdown("### Key Variables")
-    st.markdown("Below are the key variables we emphasize in our analysis, though there are more additional variables considered:")
+    st.markdown("### Key Variables
+    st.markdown("Below are the key variables we emphasize in our analysis, though there are more additional variables considered:", unsafe_allow_html=True, text_color="#333333")
+
     st.markdown("- Team")
     st.markdown("- Possession")
     st.markdown("- Number of Goals")
@@ -234,7 +235,8 @@ elif st.session_state.app_mode == 'Introduction':
 
     # Description of Data
     st.markdown("### Description of Data")
-    st.markdown("Let's take a look at some descriptive statistics of the data:")
+    st.markdown("Let's take a look at some descriptive statistics of the data:", unsafe_allow_html=True, text_color="#333333")
+
 
     # Load data
     df = pd.read_csv("FIFAWorldCup2022.csv")
@@ -395,15 +397,25 @@ elif st.session_state.app_mode == 'Introduction':
     st.write(f"Overall completeness ratio: {completeness_ratio:.2f}")
 
     if completeness_ratio >= 0.85:
-        st.success("The dataset has a high level of completeness, providing us with reliable data for analysis.")
+        st.success("The dataset has a high level of completeness, providing us with reliable data for analysis.", unsafe_allow_html=True, text_color="#333333")
     else:
-        st.warning("The dataset has a low level of completeness, which may affect the reliability of our analysis.")
+        st.warning("The dataset has a low level of completeness, which may affect the reliability of our analysis.", unsafe_allow_html=True, text_color="#333333")
+
 
     # Conclusion
     st.markdown("### Recap")
-    st.markdown("In this dashboard page, we explored the FIFA World Cup 2022 dataset. We've seen the key variables like possession, number of goals team1, corners, defensive pressures applied, and more others. We checked also the Cleanliness of our data set and checked any missing values maybe in our data set, for reliability and usability purposes.")
+    
+    # Describe conclusion with concise and clear language
+    st.markdown(
+        """
+        <p style='color: #333333; font-family: Arial, sans-serif; font-size: 16px;'>
+        In this dashboard, we explored the FIFA World Cup 2022 dataset, focusing on key variables like possession, number of goals, corners, and defensive pressures. 
+        We also assessed the cleanliness of our dataset for reliability and usability.
+        </p>
+        """,
+        unsafe_allow_html=True,
+    )
 
-# Visualization Page
 elif st.session_state.app_mode == 'Visualization':
     # Play FIFA World Cup song
     st.sidebar.subheader("Play FIFA World Cup Song")
@@ -450,7 +462,11 @@ elif st.session_state.app_mode == 'Visualization':
     # Plot the heatmap using Streamlit
     st.write("## Correlation Heatmap")
 
-    st.markdown("<h3 style='text-align: center; color: #FFFFFF;'>This heatmap illustrates the correlation between selected variables and the number of goals scored by Team 2.</h3>", unsafe_allow_html=True)
+    st.markdown(
+        "<h3 style='text-align: center; color: #1E88E5;'>This heatmap illustrates the correlation between selected variables and the number of goals scored by Team 2.</h3>",
+        unsafe_allow_html=True,
+    )
+
 
     # Add color palette customization
     color_palette = st.selectbox("Select color palette:", ["coolwarm", "viridis", "magma", "inferno", "plasma"], index=0)
