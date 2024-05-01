@@ -222,6 +222,7 @@ elif st.session_state.app_mode == 'Introduction':
 
 
 
+
     # Key Variables
     st.markdown("### Key Variables")
     st.markdown(
@@ -235,10 +236,14 @@ elif st.session_state.app_mode == 'Introduction':
     st.markdown("- <span style='color: #333333;'>On Target Attempts</span>", unsafe_allow_html=True)
     st.markdown("- <span style='color: #333333;'>Defensive Pressures Applied</span>", unsafe_allow_html=True)
 
-
     # Description of Data
     st.markdown("### Description of Data")
-    st.markdown("Let's take a look at some descriptive statistics of the data:", unsafe_allow_html=True, text_color="#333333")
+    
+    st.markdown(
+        "<p style='color: #333333;'>Let's take a look at some descriptive statistics of the data:</p>",
+        unsafe_allow_html=True,
+    )
+
 
 
     # Load data
