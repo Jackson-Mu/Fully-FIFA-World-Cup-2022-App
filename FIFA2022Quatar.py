@@ -45,8 +45,6 @@ video_concu = "Argentina v France _ FIFA World Cup Qatar 2022.mp4"
 
 import streamlit as st
 
-
-
 # Set page configuration
 st.set_page_config(
     page_title="FIFA World Cup 2022 Data Analysis",
@@ -58,8 +56,6 @@ st.title("FIFA World Cup 2022 Data Analysis")
 # Initialize session state
 if 'app_mode' not in st.session_state:
     st.session_state.app_mode = 'Welcome'
-
-
 
 st.sidebar.markdown("<h2 style='color: yellow; text-align: center; border-bottom: 2px solid yellow;'>Explore FIFA World Cup 2022 Data Analysis</h2>", unsafe_allow_html=True)
 
@@ -81,7 +77,6 @@ elif selected_button == 'Feature of Importance & Shap 📊':
     st.session_state.app_mode = 'Feature of Importance & Shap'
 elif selected_button == 'MLflow & Deployment 🚀':
     st.session_state.app_mode = 'MLflow & Deployment'
-
 elif selected_button == 'Conclusion 🏁':
     st.session_state.app_mode = 'Conclusion'
 
