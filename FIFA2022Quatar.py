@@ -422,6 +422,20 @@ elif st.session_state.app_mode == 'Introduction':
         """,
         unsafe_allow_html=True,
     )
+    # Conclusion
+    st.markdown("### Recap")
+    
+    # Describe conclusion with concise and clear language
+    st.markdown(
+        """
+        <p style='color: #FFFFFF; font-family: Arial, sans-serif; font-size: 16px; font-weight: bold;'>
+        In this dashboard, we explored the FIFA World Cup 2022 dataset, focusing on key variables like possession, number of goals, corners, and defensive pressures. 
+        We also assessed the cleanliness of our dataset for reliability and usability.
+        </p>
+        """,
+        unsafe_allow_html=True,
+    )
+
 
 
 elif st.session_state.app_mode == 'Visualization':
