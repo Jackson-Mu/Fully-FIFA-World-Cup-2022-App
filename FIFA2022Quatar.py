@@ -400,14 +400,7 @@ elif st.session_state.app_mode == 'Introduction':
 
     # Assess overall completeness of the dataset
     completeness_ratio = df.notnull().sum().sum() / (len(df) * len(df.columns))
-    st.write(f"Overall completeness ratio: {completeness_ratio:.2f}")
-
-    if completeness_ratio >= 0.85:
-        st.success("<p style='color: #333333;'>The dataset has a high level of completeness, providing us with reliable data for analysis.</p>", unsafe_allow_html=True)
-    else:
-        st.warning("<p style='color: #333333;'>The dataset has a low level of completeness, which may affect the reliability of our analysis.</p>", unsafe_allow_html=True)
-
-
+    
     # Conclusion
     st.markdown("### Recap")
     
@@ -421,6 +414,13 @@ elif st.session_state.app_mode == 'Introduction':
         """,
         unsafe_allow_html=True,
     )
+    st.write(f"Overall completeness ratio: {completeness_ratio:.2f}")
+    
+    if completeness_ratio >= 0.85:
+        st.success("The dataset has a high level of completeness, providing us with reliable data for analysis.")
+    else:
+        st.warning("The dataset has a low level of completeness, which may affect the reliability of our analysis.")
+
 
 
 elif st.session_state.app_mode == 'Visualization':
