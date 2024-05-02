@@ -45,10 +45,7 @@ video_concu = "Argentina v France _ FIFA World Cup Qatar 2022.mp4"
 
 import streamlit as st
 
-# Define custom theme as a dictionary
-custom_theme = {
-    "theme": "dark"
-}
+
 
 # Apply custom theme
 st.set_page_config(
@@ -56,7 +53,7 @@ st.set_page_config(
     page_icon="⚽",
     layout="centered",
     initial_sidebar_state="expanded",
-    theme=custom_theme   
+    "theme": "dark"  
 )
 
 
