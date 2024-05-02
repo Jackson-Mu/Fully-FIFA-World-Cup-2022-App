@@ -57,7 +57,7 @@ st.set_page_config(
     initial_sidebar_state="expanded",
    
 )
-
+st.title("FIFA World Cup 2022 Data Analysis")
 # Initialize session state
 if 'app_mode' not in st.session_state:
     st.session_state.app_mode = 'Welcome'
