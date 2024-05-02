@@ -44,20 +44,7 @@ video_intro = "FIFA_World_Cup_2022_Soundtrack.mp4"
 video_concu = "Argentina v France _ FIFA World Cup Qatar 2022.mp4"
 
 
-
 import streamlit as st
-
-# Define custom theme
-custom_theme = {
-    "theme": {
-        "base": "dark",
-        "primaryColor": "purple",
-        "backgroundColor": "#F0FF33",
-        "secondaryBackgroundColor": "#3183D1",
-        "textColor": "#03080C",
-        "font": "sans-serif"
-    }
-}
 
 # Apply custom theme
 st.set_page_config(
@@ -65,12 +52,13 @@ st.set_page_config(
     page_icon="⚽",
     layout="centered",
     initial_sidebar_state="expanded",
-    theme=custom_theme
+    theme="dark",
+    primaryColor="purple",
+    backgroundColor="#F0FF33",
+    secondaryBackgroundColor="#3183D1",
+    textColor="#03080C",
+    font="sans-serif"
 )
-
-# Your Streamlit app code here
-# For example:
-st.title("FIFA World Cup 2022 Data Analysis")
 
 # Initialize session state
 if 'app_mode' not in st.session_state:
