@@ -58,7 +58,7 @@ custom_theme = {
 st.set_page_config(
     page_title="FIFA World Cup 2022 Data Analysis",
     page_icon="⚽",
-    layout="wide",
+    layout="centered",
     initial_sidebar_state="expanded",
     
 )
