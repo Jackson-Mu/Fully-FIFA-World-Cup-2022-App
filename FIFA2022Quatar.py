@@ -43,7 +43,7 @@ audio_1= "sound_effect.mp3"
 video_intro = "FIFA_World_Cup_2022_Soundtrack.mp4"
 video_concu = "Argentina v France _ FIFA World Cup Qatar 2022.mp4"
 
-import streamlit as st
+
 
 
 # Apply custom theme from config.toml
