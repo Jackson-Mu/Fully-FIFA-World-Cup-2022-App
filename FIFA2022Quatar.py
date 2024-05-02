@@ -45,13 +45,18 @@ video_concu = "Argentina v France _ FIFA World Cup Qatar 2022.mp4"
 
 import streamlit as st
 
-# Set page configuration
-st.set_page_config(
-    page_title="FIFA World Cup 2022 Data Analysis",
-    page_icon="⚽", 
-    layout="centered",
-    theme="auto"    # Set theme mode to auto
-)
+
+# Define custom theme
+custom_theme = """
+[theme]
+primaryColor = "#000000"
+backgroundColor = "#ffffff"
+secondaryBackgroundColor = "#f8f9fa"
+textColor = "#000000"
+font = "sans-serif"
+"""
+# Apply custom theme
+st.set_page_config(page_title="FIFA World Cup 2022 Data Analysis", page_icon="⚽", layout="wide", initial_sidebar_state="expanded", theme=custom_theme)
 
 # Title
 st.title("FIFA World Cup 2022 Data Analysis")
