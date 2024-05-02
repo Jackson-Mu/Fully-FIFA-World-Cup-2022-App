@@ -48,7 +48,9 @@ import streamlit as st
 # Set page configuration
 st.set_page_config(
     page_title="FIFA World Cup 2022 Data Analysis",
-    page_icon="⚽"
+    page_icon="⚽", 
+    layout="centered",
+    theme="auto"    # Set theme mode to auto
 )
 
 # Title
