@@ -52,7 +52,6 @@ st.set_page_config(
     page_icon="⚽",
     layout="centered",
     initial_sidebar_state="expanded",
-    theme="dark",
     primaryColor="purple",
     backgroundColor="#F0FF33",
     secondaryBackgroundColor="#3183D1",
