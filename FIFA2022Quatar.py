@@ -46,6 +46,10 @@ video_concu = "Argentina v France _ FIFA World Cup Qatar 2022.mp4"
 
 import streamlit as st
 
+
+# Apply custom theme from config.toml
+st.set_config_file('config.toml')
+
 # Apply custom theme
 st.set_page_config(
     page_title="FIFA World Cup 2022 Data Analysis",
