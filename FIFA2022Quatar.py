@@ -45,11 +45,31 @@ video_concu = "Argentina v France _ FIFA World Cup Qatar 2022.mp4"
 
 
 
-# Apply custom theme from config.toml
-st.set_page_config(page_title="FIFA World Cup 2022 Data Analysis", page_icon="⚽", layout="centered", initial_sidebar_state="expanded", config="config.toml")
+import streamlit as st
 
+# Define custom theme
+custom_theme = {
+    "theme": {
+        "base": "dark",
+        "primaryColor": "purple",
+        "backgroundColor": "#F0FF33",
+        "secondaryBackgroundColor": "#3183D1",
+        "textColor": "#03080C",
+        "font": "sans-serif"
+    }
+}
 
-# Title
+# Apply custom theme
+st.set_page_config(
+    page_title="FIFA World Cup 2022 Data Analysis",
+    page_icon="⚽",
+    layout="centered",
+    initial_sidebar_state="expanded",
+    theme=custom_theme
+)
+
+# Your Streamlit app code here
+# For example:
 st.title("FIFA World Cup 2022 Data Analysis")
 
 # Initialize session state
