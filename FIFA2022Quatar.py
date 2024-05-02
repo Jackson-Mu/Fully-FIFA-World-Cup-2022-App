@@ -52,10 +52,7 @@ st.set_page_config(
     page_icon="⚽",
     layout="centered",
     initial_sidebar_state="expanded",
-    backgroundColor="#F0FF33",
-    secondaryBackgroundColor="#3183D1",
-    textColor="#03080C",
-    font="sans-serif"
+   
 )
 
 # Initialize session state
