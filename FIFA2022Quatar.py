@@ -48,7 +48,7 @@ import streamlit as st
 
 
 # Apply custom theme from config.toml
-st.set_config_file('config.toml')
+st.set_config_file('.streamlit/config.toml')
 
 # Apply custom theme
 st.set_page_config(
