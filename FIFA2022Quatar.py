@@ -47,13 +47,11 @@ import streamlit as st
 
 # Define custom theme as a dictionary
 custom_theme = {
-    "theme": {
-        "primaryColor": "#000000",
-        "backgroundColor": "#ffffff",
-        "secondaryBackgroundColor": "#f8f9fa",
-        "textColor": "#000000",
-        "font": "sans-serif"
-    }
+    "primaryColor": "#000000",
+    "backgroundColor": "#ffffff",
+    "secondaryBackgroundColor": "#f8f9fa",
+    "textColor": "#000000",
+    "font": "sans-serif"
 }
 
 # Apply custom theme
@@ -64,6 +62,7 @@ st.set_page_config(
     initial_sidebar_state="expanded",
     theme=custom_theme
 )
+
 
 # Title
 st.title("FIFA World Cup 2022 Data Analysis")
