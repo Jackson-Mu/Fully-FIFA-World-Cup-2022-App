@@ -44,20 +44,17 @@ video_intro = "FIFA_World_Cup_2022_Soundtrack.mp4"
 video_concu = "Argentina v France _ FIFA World Cup Qatar 2022.mp4"
 
 import streamlit as st
-import yaml
 
-# Define custom theme as a multi-line string
-custom_theme_str = """
-[theme]
-primaryColor = "#000000"
-backgroundColor = "#ffffff"
-secondaryBackgroundColor = "#f8f9fa"
-textColor = "#000000"
-font = "sans-serif"
-"""
-
-# Convert multi-line string to dictionary
-custom_theme = yaml.safe_load(custom_theme_str)
+# Define custom theme as a dictionary
+custom_theme = {
+    "theme": {
+        "primaryColor": "#000000",
+        "backgroundColor": "#ffffff",
+        "secondaryBackgroundColor": "#f8f9fa",
+        "textColor": "#000000",
+        "font": "sans-serif"
+    }
+}
 
 # Apply custom theme
 st.set_page_config(
