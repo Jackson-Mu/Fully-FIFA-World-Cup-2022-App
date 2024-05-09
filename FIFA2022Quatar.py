@@ -430,6 +430,8 @@ elif st.session_state.app_mode == 'Introduction':
         """,
         unsafe_allow_html=True,
     )
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4169878558179489"
+     crossorigin="anonymous"></script>
 
 
 
@@ -778,6 +780,9 @@ elif st.session_state.app_mode == 'Visualization':
         # Surprise Element: Random Fun Fact
         random_fact = "Did you know that the FIFA World Cup trophy weighs about 6.175 kilograms (13.61 pounds)?"
         st.markdown(f"<p style='font-family: Georgia; color: #FF0000;'>Here's a random fun fact: {random_fact}</p>", unsafe_allow_html=True)
+
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4169878558179489"
+     crossorigin="anonymous"></script>
 
 
 
@@ -1261,6 +1266,9 @@ elif st.session_state.app_mode == 'Feature of Importance & Shap':
     st.write("Negative SHAP values indicate features that decrease the predicted number of goals.")
     st.write("Higher magnitude suggests stronger impact on predictions.")
 
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4169878558179489"
+     crossorigin="anonymous"></script>
+
 elif st.session_state.app_mode == 'MLflow & Deployment':
     from sklearn.model_selection import train_test_split, GridSearchCV
     from sklearn.tree import DecisionTreeClassifier
@@ -1414,7 +1422,8 @@ elif st.session_state.app_mode == 'MLflow & Deployment':
             if play_again:
                 # Reset session state to reload questions
                 st.session_state.app_mode = 'MLflow & Deployment'
-
+       <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4169878558179489"
+         crossorigin="anonymous"></script>
 
 
 
@@ -1620,6 +1629,9 @@ elif st.session_state.app_mode == 'Conclusion':
     st.markdown("<p style='font-family: Arial; font-size: 20px; color: white;'>Hope you enjoyed discovering insights and trends in the data.</p>", unsafe_allow_html=True)
     st.markdown("<p style='font-family: Arial; font-size: 20px; color: white;'>Congratulations on your journey through football analytics!</p>", unsafe_allow_html=True)
     st.markdown("<p style='font-family: Arial; font-size: 20px; color: white;'>Here's a special surprise just for you!</p>", unsafe_allow_html=True)
+
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4169878558179489"
+     crossorigin="anonymous"></script>
 
     # Additional Shocking Feature
     st.subheader("Reveal Secret")
