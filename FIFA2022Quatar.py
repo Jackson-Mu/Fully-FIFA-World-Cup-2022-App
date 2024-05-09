@@ -43,13 +43,15 @@ audio_1= "sound_effect.mp3"
 video_intro = "FIFA_World_Cup_2022_Soundtrack.mp4"
 video_concu = "Argentina v France _ FIFA World Cup Qatar 2022.mp4"
 
+
 # Include Google AdSense script
-st.markdown("""
+google_adsense_script = """
 <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4169878558179489"
      crossorigin="anonymous"></script>
-""", unsafe_allow_html=True)
+"""
 
-import streamlit as st
+# Display the Google AdSense script
+st.markdown(google_adsense_script, unsafe_allow_html=True)
 
 
 
