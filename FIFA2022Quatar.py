@@ -1263,8 +1263,7 @@ elif st.session_state.app_mode == 'Feature of Importance & Shap':
     st.write("Negative SHAP values indicate features that decrease the predicted number of goals.")
     st.write("Higher magnitude suggests stronger impact on predictions.")
 
-    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4169878558179489"
-     crossorigin="anonymous"></script>
+
 
 elif st.session_state.app_mode == 'MLflow & Deployment':
     from sklearn.model_selection import train_test_split, GridSearchCV
