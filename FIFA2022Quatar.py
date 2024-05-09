@@ -1626,8 +1626,7 @@ elif st.session_state.app_mode == 'Conclusion':
     st.markdown("<p style='font-family: Arial; font-size: 20px; color: white;'>Congratulations on your journey through football analytics!</p>", unsafe_allow_html=True)
     st.markdown("<p style='font-family: Arial; font-size: 20px; color: white;'>Here's a special surprise just for you!</p>", unsafe_allow_html=True)
 
-    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4169878558179489"
-     crossorigin="anonymous"></script>
+    
 
     # Additional Shocking Feature
     st.subheader("Reveal Secret")
