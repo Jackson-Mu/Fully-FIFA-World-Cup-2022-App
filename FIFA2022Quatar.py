@@ -56,19 +56,17 @@ def main():
     html_content = load_html_file()
     st.markdown(html_content, unsafe_allow_html=True)
 
+    # Apply custom theme
+    st.set_page_config(
+        page_title="FIFA World Cup 2022 Data Analysis",
+        page_icon="⚽",
+        layout="centered",
+        initial_sidebar_state="expanded",
+    )
+
 if __name__ == "__main__":
     main()
 
-
-
-
-# Apply custom theme
-st.set_page_config(
-    page_title="FIFA World Cup 2022 Data Analysis",
-    page_icon="⚽",
-    layout="centered",
-    initial_sidebar_state="expanded",
-)
 
 st.title("FIFA World Cup 2022 Data Analysis")
 # Initialize session state
