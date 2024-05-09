@@ -44,6 +44,14 @@ video_intro = "FIFA_World_Cup_2022_Soundtrack.mp4"
 video_concu = "Argentina v France _ FIFA World Cup Qatar 2022.mp4"
 
 
+<head>
+    <!-- Other head content -->
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4169878558179489"
+        crossorigin="anonymous"></script>
+    <!-- Other head content -->
+</head>
+
+
 
 # Apply custom theme
 st.set_page_config(
