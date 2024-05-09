@@ -44,28 +44,12 @@ video_intro = "FIFA_World_Cup_2022_Soundtrack.mp4"
 video_concu = "Argentina v France _ FIFA World Cup Qatar 2022.mp4"
 
 
-import streamlit as st
-
-def load_html_file():
-    with open("index.html", "r") as file:
-        html_content = file.read()
-    return html_content
-
-def main():
-    # Load and display the HTML content
-    html_content = load_html_file()
-    st.markdown(html_content, unsafe_allow_html=True)
-
-    # Apply custom theme
-    st.set_page_config(
-        page_title="FIFA World Cup 2022 Data Analysis",
-        page_icon="⚽",
-        layout="centered",
-        initial_sidebar_state="expanded",
-    )
-
-if __name__ == "__main__":
-    main()
+st.set_page_config(
+    page_title="FIFA World Cup 2022 Data Analysis",
+    page_icon="⚽",
+    layout="centered",
+    initial_sidebar_state="expanded",
+)
 
 
 st.title("FIFA World Cup 2022 Data Analysis")
