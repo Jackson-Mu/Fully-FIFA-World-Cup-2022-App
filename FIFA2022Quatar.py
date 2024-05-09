@@ -44,12 +44,21 @@ video_intro = "FIFA_World_Cup_2022_Soundtrack.mp4"
 video_concu = "Argentina v France _ FIFA World Cup Qatar 2022.mp4"
 
 
-<head>
-    <!-- Other head content -->
-    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4169878558179489"
-        crossorigin="anonymous"></script>
-    <!-- Other head content -->
-</head>
+import streamlit as st
+
+def load_html_file():
+    with open("index.html", "r") as file:
+        html_content = file.read()
+    return html_content
+
+def main():
+    # Load and display the HTML content
+    html_content = load_html_file()
+    st.markdown(html_content, unsafe_allow_html=True)
+
+if __name__ == "__main__":
+    main()
+
 
 
 
