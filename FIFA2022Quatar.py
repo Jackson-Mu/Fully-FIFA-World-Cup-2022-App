@@ -53,17 +53,14 @@ google_adsense_script = """
 # Display the Google AdSense script
 st.markdown(google_adsense_script, unsafe_allow_html=True)
 
-
-
-
 # Apply custom theme
 st.set_page_config(
     page_title="FIFA World Cup 2022 Data Analysis",
     page_icon="⚽",
     layout="centered",
     initial_sidebar_state="expanded",
-   
 )
+
 st.title("FIFA World Cup 2022 Data Analysis")
 # Initialize session state
 if 'app_mode' not in st.session_state:
