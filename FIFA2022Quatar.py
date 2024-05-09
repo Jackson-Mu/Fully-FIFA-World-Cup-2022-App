@@ -1418,14 +1418,15 @@ elif st.session_state.app_mode == 'MLflow & Deployment':
             if play_again:
                 # Reset session state to reload questions
                 st.session_state.app_mode = 'MLflow & Deployment'
-       <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4169878558179489"
-         crossorigin="anonymous"></script>
+       
 
 
 
 # Conclusion Page
 elif st.session_state.app_mode == 'Conclusion':
     st.subheader("Conclusion")
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4169878558179489"
+         crossorigin="anonymous"></script>
 
     # Play the FIFA song
     st.sidebar.subheader("Play FIFA World Cup Song")
