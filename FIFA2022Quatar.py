@@ -779,8 +779,7 @@ elif st.session_state.app_mode == 'Visualization':
         random_fact = "Did you know that the FIFA World Cup trophy weighs about 6.175 kilograms (13.61 pounds)?"
         st.markdown(f"<p style='font-family: Georgia; color: #FF0000;'>Here's a random fun fact: {random_fact}</p>", unsafe_allow_html=True)
 
-    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4169878558179489"
-     crossorigin="anonymous"></script>
+
 
 
 
