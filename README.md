@@ -1,6 +1,6 @@
 ## Created Streamlit App Link
 
-Check out my Streamlit app [here](https://fifa2022quatarpy-l9aocsw6pzmcuwnfap5hnw.streamlit.app/).
+Check it out on Streamlit app [here](https://fifa2022quatarpy-l9aocsw6pzmcuwnfap5hnw.streamlit.app/).
 
 ## Also to be found on Hugging Face
 
