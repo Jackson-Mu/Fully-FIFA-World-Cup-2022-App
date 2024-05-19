@@ -22,7 +22,7 @@ from email.mime.text import MIMEText
 import smtplib
 import tensorflow as tf
 from codecarbon import EmissionsTracker
-import random
+import random 
 
 
 
