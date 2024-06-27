@@ -577,7 +577,58 @@ elif st.session_state.app_mode == 'Visualization':
     def play_sound():
         st.audio("sound_effect.mp3", format="audio/mp3")
 
-    
+      # Function to generate the box plot
+        def generate_box_plot(selected_variable):
+            fig_box, ax_box = plt.subplots()
+            sns.boxplot(data=df, x=selected_variable, ax=ax_box)
+            ax_box.set_xlabel(selected_variable)
+            ax_box.set_title(f'Box Plot of {selected_variable}')
+            plt.xticks(rotation=45)
+            plt.tight_layout()
+            st.pyplot(fig_box)
+
+    # Main code
+    st.subheader('Box Plot')
+
+    # Interactive Selection: Allow users to select specific variables
+    box_default = 'defensive pressures applied team1'
+    index_box_default = df.columns.get_loc(box_default) if box_default in df.columns else 0
+    index_box = min(index_box_default, len(df.columns[:-1]) - 1)
+    independent_variable_box = st.selectbox("Select Variable", df.columns[:-1], index=index_box, key='box_independent')
+
+    # Check if the index is within the range of options
+    if index_box < len(df.columns[:-1]):
+        # Call the function to generate the box plot
+        generate_box_plot(independent_variable_box)
+
+        # Color Palette Customization: Allow users to choose different color palettes
+        color_palette_key = 'color_palette_box'
+        color_palette = st.selectbox("Select color palette:", ["coolwarm", "viridis", "magma", "inferno", "plasma"], index=0, key=color_palette_key)
+        cmap = sns.color_palette(color_palette, as_cmap=True)
+
+        # Show interactive sorting option
+        sort_values_checkbox_key = 'sort_values_checkbox_box'
+        if st.checkbox('Sort Values', key=sort_values_checkbox_key):
+            sort_order_box = st.radio("Select sort order", ["ascending", "descending"], index=1, key='sort_order_box')
+            if sort_order_box == "ascending":
+                df_sorted_box = df.sort_values(by=independent_variable_box)
+            else:
+                df_sorted_box = df.sort_values(by=independent_variable_box, ascending=False)
+            st.dataframe(df_sorted_box)
+
+        # Dynamic Thresholding: Allow users to adjust threshold for displaying box plot
+        min_val = float(df[independent_variable_box].min())  # Cast min value to float
+        max_val = float(df[independent_variable_box].max())  # Cast max value to float
+        mean_val = df[independent_variable_box].mean()  # No need to cast mean value, it's already float
+        threshold_box = st.slider('Threshold for Box Plot', min_value=min_val, max_value=max_val, value=mean_val)
+
+        # Play sound effect when plot is generated
+        if st.button("Generate Box Plot"):
+            play_sound()
+
+    else:
+        st.warning("No valid variable selected for the box plot.")
+
 
       # Bar plot
         st.subheader('Bar Plot')
