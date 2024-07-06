@@ -573,111 +573,115 @@ elif st.session_state.app_mode == 'Visualization':
     sns.set_palette(palette)
     st.pyplot(fig_hist)
 
+    import streamlit as st
+    import seaborn as sns
+    import matplotlib.pyplot as plt
+    import pandas as pd
+
+    # Example DataFrame
+    # You need to replace this with your actual DataFrame
+    data = {
+        'free kicks team2': [1, 2, 3, 4, 5],
+        'number of goals team2': [5, 4, 3, 2, 1]
+    }
+    df = pd.DataFrame(data)
+
     # Define the play_sound function
     def play_sound():
         st.audio("sound_effect.mp3", format="audio/mp3")
 
-      # Function to generate the box plot
-        def generate_box_plot(selected_variable):
-            fig_box, ax_box = plt.subplots()
-            sns.boxplot(data=df, x=selected_variable, ax=ax_box)
-            ax_box.set_xlabel(selected_variable)
-            ax_box.set_title(f'Box Plot of {selected_variable}')
-            plt.xticks(rotation=45)
-            plt.tight_layout()
-            st.pyplot(fig_box)
+    # Define the function to generate the box plot
+    def generate_box_plot(selected_variable):
+        fig_box, ax_box = plt.subplots()
+        sns.boxplot(data=df, x=selected_variable, ax=ax_box)
+        ax_box.set_xlabel(selected_variable)
+        ax_box.set_title(f'Box Plot of {selected_variable}')
+        plt.xticks(rotation=45)
+        plt.tight_layout()
+        st.pyplot(fig_box)
 
-import streamlit as st
-import seaborn as sns
-import matplotlib.pyplot as plt
+    # Example variable definitions
+    index_box = 0  # Example index, replace with your logic
+    independent_variable_box = 'free kicks team2'  # Example variable, replace with your logic
 
-# Define the function to generate the box plot
-def generate_box_plot(independent_variable):
-    fig, ax = plt.subplots()
-    sns.boxplot(data=df, x=independent_variable, ax=ax)
-    ax.set_title(f'Box Plot of {independent_variable}')
-    plt.xticks(rotation=45)
-    plt.tight_layout()
-    st.pyplot(fig)
+    # Check if the index is within the range of options
+    if index_box < len(df.columns[:-1]):
+        # Call the function to generate the box plot
+        generate_box_plot(independent_variable_box)
 
-# Check if the index is within the range of options
-if index_box < len(df.columns[:-1]):
-    # Call the function to generate the box plot
-    generate_box_plot(independent_variable_box)
+        # Color Palette Customization: Allow users to choose different color palettes
+        color_palette_key = 'color_palette_box'
+        color_palette = st.selectbox("Select color palette:", ["coolwarm", "viridis", "magma", "inferno", "plasma"], index=0, key=color_palette_key)
+        cmap = sns.color_palette(color_palette, as_cmap=True)
+
+        # Show interactive sorting option
+        sort_values_checkbox_key = 'sort_values_checkbox_box'
+        if st.checkbox('Sort Values', key=sort_values_checkbox_key):
+            sort_order_box = st.radio("Select sort order", ["ascending", "descending"], index=1, key='sort_order_box')
+            if sort_order_box == "ascending":
+                df_sorted_box = df.sort_values(by=independent_variable_box)
+            else:
+                df_sorted_box = df.sort_values(by=independent_variable_box, ascending=False)
+            st.dataframe(df_sorted_box)
+
+        # Dynamic Thresholding: Allow users to adjust threshold for displaying box plot
+        min_val = float(df[independent_variable_box].min())  # Cast min value to float
+        max_val = float(df[independent_variable_box].max())  # Cast max value to float
+        mean_val = df[independent_variable_box].mean()  # No need to cast mean value, it's already float
+        threshold_box = st.slider('Threshold for Box Plot', min_value=min_val, max_value=max_val, value=mean_val)
+
+        # Play sound effect when plot is generated
+        if st.button("Generate Box Plot"):
+            play_sound()
+
+    else:
+        st.warning("No valid variable selected for the box plot.")
+
+    # Bar plot
+    st.subheader('Bar Plot')
+
+    # Interactive Selection: Allow users to select specific variables
+    bar_independent_default = 'free kicks team2'
+    bar_dependent_default = 'number of goals team2'
+    independent_variable_bar = st.selectbox("Select Independent Variable", df.columns[:-1], index=df.columns.get_loc(bar_independent_default) if bar_independent_default in df.columns else 0, key='bar_independent')
+    dependent_variable_bar = st.selectbox("Select Dependent Variable", df.columns[:-1], index=df.columns.get_loc(bar_dependent_default) if bar_dependent_default in df.columns else 0, key='bar_dependent')
 
     # Color Palette Customization: Allow users to choose different color palettes
-    color_palette_key = 'color_palette_box'
-    color_palette = st.selectbox("Select color palette:", ["coolwarm", "viridis", "magma", "inferno", "plasma"], index=0, key=color_palette_key)
-    cmap = sns.color_palette(color_palette, as_cmap=True)
+    palette_bar = st.radio("Select Color Palette", ["viridis", "magma", "plasma", "inferno", "coolwarm"], key='bar_color_palette')
+
+    # Create bar plot function
+    def create_bar_plot(data, x, y, palette):
+        fig_bar, ax_bar = plt.subplots()
+        sns.barplot(data=data, x=x, y=y, ax=ax_bar, palette=palette)
+        ax_bar.set_xlabel(x)
+        ax_bar.set_ylabel(y)
+        ax_bar.set_title(f'Bar Plot of {y} vs {x}')
+        plt.xticks(rotation=45)
+        plt.tight_layout()
+        st.pyplot(fig_bar)
+
+    # Display initial bar plot
+    create_bar_plot(df, independent_variable_bar, dependent_variable_bar, palette_bar)
 
     # Show interactive sorting option
-    sort_values_checkbox_key = 'sort_values_checkbox_box'
-    if st.checkbox('Sort Values', key=sort_values_checkbox_key):
-        sort_order_box = st.radio("Select sort order", ["ascending", "descending"], index=1, key='sort_order_box')
-        if sort_order_box == "ascending":
-            df_sorted_box = df.sort_values(by=independent_variable_box)
+    if st.checkbox('Sort Values', key='sort_checkbox'):
+        sort_order_bar = st.radio("Select sort order", ["ascending", "descending"], index=1, key='sort_order_radio')
+        if sort_order_bar == "ascending":
+            df_sorted_bar = df.sort_values(by=dependent_variable_bar)
         else:
-            df_sorted_box = df.sort_values(by=independent_variable_box, ascending=False)
-        st.dataframe(df_sorted_box)
+            df_sorted_bar = df.sort_values(by=dependent_variable_bar, ascending=False)
+        create_bar_plot(df_sorted_bar, independent_variable_bar, dependent_variable_bar, palette_bar)
 
-    # Dynamic Thresholding: Allow users to adjust threshold for displaying box plot
-    min_val = float(df[independent_variable_box].min())  # Cast min value to float
-    max_val = float(df[independent_variable_box].max())  # Cast max value to float
-    mean_val = df[independent_variable_box].mean()  # No need to cast mean value, it's already float
-    threshold_box = st.slider('Threshold for Box Plot', min_value=min_val, max_value=max_val, value=mean_val)
+    # Dynamic Thresholding: Allow users to adjust threshold for displaying bar plot
+    min_value_bar = float(df[dependent_variable_bar].min())  # Convert min_value to float
+    max_value_bar = float(df[dependent_variable_bar].max())  # Convert max_value to float
+    value_bar = float(df[dependent_variable_bar].mean())     # Convert value to float
+    step_bar = 0.1  # Set step as a float
+    threshold_bar = st.slider('Threshold for Bar Plot', min_value=min_value_bar, max_value=max_value_bar, value=value_bar, step=step_bar, key='threshold_slider')
 
     # Play sound effect when plot is generated
-    if st.button("Generate Box Plot"):
+    if st.button("Generate Bar Plot"):
         play_sound()
-
-else:
-    st.warning("No valid variable selected for the box plot.")
-
-# Bar plot
-st.subheader('Bar Plot')
-
-# Interactive Selection: Allow users to select specific variables
-bar_independent_default = 'free kicks team2'
-bar_dependent_default = 'number of goals team2'
-independent_variable_bar = st.selectbox("Select Independent Variable", df.columns[:-1], index=df.columns.get_loc(bar_independent_default) if bar_independent_default in df.columns else 0, key='bar_independent')
-dependent_variable_bar = st.selectbox("Select Dependent Variable", df.columns[:-1], index=df.columns.get_loc(bar_dependent_default) if bar_dependent_default in df.columns else 0, key='bar_dependent')
-
-# Color Palette Customization: Allow users to choose different color palettes
-palette_bar = st.radio("Select Color Palette", ["viridis", "magma", "plasma", "inferno", "coolwarm"], key='bar_color_palette')
-
-# Create bar plot function
-def create_bar_plot(data, x, y, palette):
-    fig_bar, ax_bar = plt.subplots()
-    sns.barplot(data=data, x=x, y=y, ax=ax_bar, palette=palette)
-    ax_bar.set_xlabel(x)
-    ax_bar.set_ylabel(y)
-    ax_bar.set_title(f'Bar Plot of {y} vs {x}')
-    plt.xticks(rotation=45)
-    plt.tight_layout()
-    st.pyplot(fig_bar)
-
-# Display initial bar plot
-create_bar_plot(df, independent_variable_bar, dependent_variable_bar, palette_bar)
-
-# Show interactive sorting option
-if st.checkbox('Sort Values', key='sort_checkbox'):
-    sort_order_bar = st.radio("Select sort order", ["ascending", "descending"], index=1, key='sort_order_radio')
-    if sort_order_bar == "ascending":
-        df_sorted_bar = df.sort_values(by=dependent_variable_bar)
-    else:
-        df_sorted_bar = df.sort_values(by=dependent_variable_bar, ascending=False)
-    create_bar_plot(df_sorted_bar, independent_variable_bar, dependent_variable_bar, palette_bar)
-
-# Dynamic Thresholding: Allow users to adjust threshold for displaying bar plot
-min_value_bar = float(df[dependent_variable_bar].min())  # Convert min_value to float
-max_value_bar = float(df[dependent_variable_bar].max())  # Convert max_value to float
-value_bar = float(df[dependent_variable_bar].mean())     # Convert value to float
-step_bar = 0.1  # Set step as a float
-threshold_bar = st.slider('Threshold for Bar Plot', min_value=min_value_bar, max_value=max_value_bar, value=value_bar, step=step_bar, key='threshold_slider')
-
-# Play sound effect when plot is generated
-if st.button("Generate Bar Plot"):
-    play_sound()
 
     import random  # Import the random module
 
