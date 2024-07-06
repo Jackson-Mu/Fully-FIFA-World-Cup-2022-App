@@ -20,9 +20,13 @@ import plotly.figure_factory as ff
 from email.mime.multipart import MIMEMultipart
 from email.mime.text import MIMEText
 import smtplib
-import tensorflow as tf
 from codecarbon import EmissionsTracker
 import random 
+try:
+    import tensorflow as tf
+    from tensorflow.python.framework import dtypes
+except ImportError as e:
+    st.error(f"TensorFlow import error: {e}")
 
 
 
