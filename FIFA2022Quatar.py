@@ -22,14 +22,12 @@ from email.mime.text import MIMEText
 import smtplib
 from codecarbon import EmissionsTracker
 import random 
+import tensorflow as tf
+
 try:
-    import tensorflow as tf
     from tensorflow.python.framework import dtypes
 except ImportError as e:
     st.error(f"TensorFlow import error: {e}")
-
-
-
 
 # Load image
 image_quatar2022 = Image.open('quatar2022.jpeg')
