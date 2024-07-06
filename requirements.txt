@@ -7,6 +7,6 @@ numpy==1.22.0
 plotly==5.6.0
 shapash>=2.4.0
 scikit-learn==1.0.2
-tensorflow==2.10.0
+tensorflow==2.7.0
 codecarbon==1.1.1
 mlflow==1.26.1
