@@ -7,6 +7,6 @@ numpy==1.22.0
 plotly==5.6.0
 shapash>=2.4.0
 scikit-learn==1.5.1
-tensorflow==2.8.0  # Update TensorFlow version due to availability issues with 2.8.4
+tensorflow==2.8.3  # Update TensorFlow version due to availability issues with 2.8.4
 codecarbon==1.1.1
 mlflow==2.2.1
