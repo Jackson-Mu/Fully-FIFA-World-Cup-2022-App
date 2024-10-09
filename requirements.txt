@@ -1,12 +1,12 @@
 streamlit==1.30.0
 pandas==1.4.2
-Pillow==10.8.1
+Pillow==10.2.0
 matplotlib==3.5.1
 seaborn==0.11.2
 numpy==1.22.0
 plotly==5.6.0
 shapash>=2.4.0
 scikit-learn==1.5.1
-tensorflow==2.10.3  
+tensorflow==2.10.3
 codecarbon==1.1.1
 mlflow==2.5.1
