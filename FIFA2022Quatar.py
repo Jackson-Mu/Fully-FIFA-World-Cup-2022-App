@@ -1685,3 +1685,112 @@ elif st.session_state.app_mode == 'Conclusion':
         st.write('<style>div.st-balloons > img {animation: balloon-float 2s linear infinite, balloon-spin 4s linear infinite;}</style>', unsafe_allow_html=True)
         st.write('<style>@keyframes balloon-float {0% {transform: translateY(0);} 50% {transform: translateY(-20px);} 100% {transform: translateY(0);}} @keyframes balloon-spin {from {transform: rotate(0deg);} to {transform: rotate(360deg);}}</style>', unsafe_allow_html=True)
 
+   
+    # Custom CSS for the footer and personal branding
+    st.markdown("""
+    <style>
+        .footer {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            background: linear-gradient(45deg, #1e3c72, #2a5298);
+            color: white;
+            padding: 20px 0;
+            text-align: center;
+            font-family: 'Helvetica Neue', sans-serif;
+            z-index: 999;
+        }
+        .author-card {
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 15px;
+            padding: 15px;
+            margin: 10px auto;
+            max-width: 600px;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+        .social-links {
+            margin-top: 10px;
+        }
+        .social-links a {
+            color: #FFD700;
+            text-decoration: none;
+            margin: 0 10px;
+            font-size: 20px;
+        }
+        .social-links a:hover {
+            color: #FFA500;
+            transform: scale(1.1);
+            transition: all 0.3s ease;
+        }
+        .fifa-badge {
+            background: linear-gradient(45deg, #FFD700, #FFA500);
+            color: black;
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-weight: bold;
+            display: inline-block;
+            margin: 5px;
+        }
+    </style>
+    
+    <div class="footer">
+        <div class="author-card">
+            <div class="fifa-badge">FIFA World Cup 2022 Data Analysis</div>
+            <h3>Created by Jackson Mukeshimana</h3>
+            <p>Data Scientist | Football Analytics Enthusiast</p>
+            <div class="social-links">
+                <a href="https://github.com/Jackson-Mu" target="_blank">🌟 GitHub</a>
+                
+                <a href="mailto:mukesjackson02@gmail.com">📧 Email</a>
+            </div>
+            <p style="margin-top: 10px; font-size: 12px;">
+                © 2024 | Built with ❤️ using Python, JavaScript & Streamlit
+            </p>
+        </div>
+    </div>
+    """, unsafe_allow_html=True)
+    
+    # Add an interactive signature animation
+    st.markdown("""
+    <div style="text-align: center; margin-bottom: 100px;">
+        <div style="
+            display: inline-block;
+            padding: 10px 20px;
+            background: linear-gradient(45deg, #1e3c72, #2a5298);
+            border-radius: 10px;
+            color: white;
+            font-family: 'Courier New', monospace;
+            font-size: 16px;
+            animation: glow 2s ease-in-out infinite alternate;
+        ">
+            <span style="font-size: 20px;">⚽</span> 
+            Analyzed by Jackson Mukeshimana 
+            <span style="font-size: 20px;">⚽</span>
+        </div>
+    </div>
+    
+    <style>
+    @keyframes glow {
+        from {
+            box-shadow: 0 0 10px #1e3c72, 0 0 20px #2a5298, 0 0 30px #FFD700;
+        }
+        to {
+            box-shadow: 0 0 20px #1e3c72, 0 0 30px #2a5298, 0 0 40px #FFD700;
+        }
+    }
+    </style>
+    """, unsafe_allow_html=True)
+    
+    # Add a fun interactive element
+    if st.button("🎉 Show Credits"):
+        st.balloons()
+        st.markdown("""
+        <div style="text-align: center; padding: 20px; background: linear-gradient(45deg, rgba(30,60,114,0.1), rgba(42,82,152,0.1)); border-radius: 15px;">
+            <h2 style="color: #1e3c72;">Special Thanks</h2>
+            <p>To all football fans and data enthusiasts!</p>
+            <p style="font-size: 24px;">🏆 ⚽ 📊 🌟</p>
+        </div>
+        """, unsafe_allow_html=True)
+
