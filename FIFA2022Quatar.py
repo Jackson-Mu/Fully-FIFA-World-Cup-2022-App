@@ -309,8 +309,7 @@ if st.session_state.app_mode == 'Welcome':
             unsafe_allow_html=True
     )
 
-      # Add spacing
-    st.markdown("<br><br>", unsafe_allow_html=True)
+
     
   
     create_footer_component()
