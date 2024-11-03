@@ -1626,7 +1626,7 @@ elif st.session_state.app_mode == 'MLflow & Deployment':
 
 # Conclusion Page
 elif st.session_state.app_mode == 'Conclusion':
-    st.subheader("Conclusion")
+    st.subheader("Conclusion 👋")
   
 
     # Play the FIFA song
@@ -1637,7 +1637,6 @@ elif st.session_state.app_mode == 'Conclusion':
 
 
 
-    st.title("FIFA World Cup 2022 Data Analysis - Conclusion 👋")
     st.video(video_concu, format='video/mp4')
 
 
