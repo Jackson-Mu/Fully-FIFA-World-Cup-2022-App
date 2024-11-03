@@ -709,12 +709,36 @@ elif st.session_state.app_mode == 'Visualization':
     # Additional graphs
     st.subheader('Additional Graphs')
     st.markdown("Extra graphs based on picked variables from the dataset (Pick Yours to Explore as well!):")
-
-    # Plot 1: On Target Attempts Team1 vs Number of Goals of Team1 (Scatter Plot)
+    
+    # Define default values
     additional_independent_default_1 = 'on target attempts team1'
     additional_dependent_default_1 = 'number of goals team1'
-    additional_independent_variable_1 = st.selectbox("Select Independent Variable", df.columns[:-1], index=df.columns.get_loc(additional_independent_default_1) if additional_independent_default_1 in df.columns else 0, key='additional_independent_1')
-    additional_dependent_variable_1 = st.selectbox("Select Dependent Variable", df.columns[:-1], index=df.columns.get_loc(additional_dependent_default_1) if additional_dependent_default_1 in df.columns else 0, key='additional_dependent_1')
+    additional_independent_default_2 = 'assists team2'
+    additional_dependent_default_2 = 'number of goals team2'
+    
+    # Safe selection of default indices function
+    def get_safe_index(columns, default_value):
+        try:
+            return list(columns).index(default_value) if default_value in columns else 0
+        except (ValueError, TypeError):
+            return 0
+    
+    # Plot 1: First set of selectboxes with safe index selection
+    additional_independent_variable_1 = st.selectbox(
+        "Select Independent Variable (Plot 1)", 
+        options=df.columns[:-1],
+        index=get_safe_index(df.columns[:-1], additional_independent_default_1),
+        key='additional_independent_1'
+    )
+    
+    additional_dependent_variable_1 = st.selectbox(
+        "Select Dependent Variable (Plot 1)", 
+        options=df.columns[:-1],
+        index=get_safe_index(df.columns[:-1], additional_dependent_default_1),
+        key='additional_dependent_1'
+    )
+    
+    # Create scatter plot
     fig1, ax1 = plt.subplots()
     sns.scatterplot(data=df, x=additional_independent_variable_1, y=additional_dependent_variable_1, ax=ax1)
     ax1.set_xlabel(additional_independent_variable_1)
@@ -722,23 +746,32 @@ elif st.session_state.app_mode == 'Visualization':
     ax1.set_title(f'{additional_dependent_variable_1} vs {additional_independent_variable_1}')
     plt.xticks(rotation=45)
     plt.tight_layout()
-
-    # Dynamic Thresholding: Allow users to adjust threshold for displaying scatter plot
+    
+    # Dynamic Thresholding for scatter plot
     min_val_1 = float(df[additional_dependent_variable_1].min())
     max_val_1 = float(df[additional_dependent_variable_1].max())
     mean_val_1 = float(df[additional_dependent_variable_1].mean())
     step_val_1 = (max_val_1 - min_val_1) / 100  # Adjust step value
     threshold_scatter_1 = st.slider('Threshold for Scatter Plot', min_value=min_val_1, max_value=max_val_1, value=mean_val_1, step=step_val_1, format="%.2f")
-
+    
     st.pyplot(fig1)
-
-    # Plot 2: Assists vs Number of Goals (Line Plot)
-    additional_independent_default_2 = 'assists team2'
-    additional_dependent_default_2 = 'number of goals team2'
-    additional_independent_variable_2 = st.selectbox("Select Independent Variable", df.columns[:-1], index=df.columns.get_loc(additional_independent_default_2) if additional_independent_default_2 in df.columns else 0, key='additional_independent_2')
-    additional_dependent_variable_2 = st.selectbox("Select Dependent Variable", df.columns[:-1], index=df.columns.get_loc(additional_dependent_default_2) if additional_dependent_default_2 in df.columns else 0, key='additional_dependent_2')
-
-    # Check if data for the selected variables is available in the DataFrame
+    
+    # Plot 2: Second set of selectboxes with safe index selection
+    additional_independent_variable_2 = st.selectbox(
+        "Select Independent Variable (Plot 2)", 
+        options=df.columns[:-1],
+        index=get_safe_index(df.columns[:-1], additional_independent_default_2),
+        key='additional_independent_2'
+    )
+    
+    additional_dependent_variable_2 = st.selectbox(
+        "Select Dependent Variable (Plot 2)", 
+        options=df.columns[:-1],
+        index=get_safe_index(df.columns[:-1], additional_dependent_default_2),
+        key='additional_dependent_2'
+    )
+    
+    # Check if data for the selected variables is available and create line plot
     if additional_independent_variable_2 in df.columns and additional_dependent_variable_2 in df.columns:
         fig2, ax2 = plt.subplots()
         sns.lineplot(data=df, x=additional_independent_variable_2, y=additional_dependent_variable_2, ax=ax2)
@@ -747,13 +780,13 @@ elif st.session_state.app_mode == 'Visualization':
         ax2.set_title(f'{additional_dependent_variable_2} vs {additional_independent_variable_2}')
         plt.xticks(rotation=45)
         plt.tight_layout()
-
+    
         # Display the plot
         st.pyplot(fig2)
     else:
         st.warning("Selected variables not found in the dataset. Please make sure to select valid variables.")
-
-    # Interactive Sorting: Allow users to sort variables based on correlation values
+    
+    # Interactive Sorting
     if st.checkbox('Interactive Sorting'):
         sort_order = st.radio("Select sort order", ["ascending", "descending"], index=1)
         if sort_order == "ascending":
@@ -761,28 +794,28 @@ elif st.session_state.app_mode == 'Visualization':
         else:
             df_sorted = df.sort_values(by=additional_independent_variable_2, ascending=False)
         st.dataframe(df_sorted)
-
-    # Additional Fun Facts
-    show_fun_facts = st.button("Show Fun Facts")
-    if show_fun_facts:
-        st.session_state.show_fun_facts = True
-
-    if "show_fun_facts" not in st.session_state:
-        st.session_state.show_fun_facts = False
-
-    if st.session_state.show_fun_facts:
-        with st.expander("", expanded=True):
-            expander_title = "<h2 style='font-family: Arial; font-size: 20px;'>Additional Fun Facts</h2>"
-            st.markdown(expander_title, unsafe_allow_html=True)
-            fun_facts = [
-                "The fastest goal in FIFA World Cup history was scored by Hakan Şükür of Turkey in 2002, just 11 seconds into the match!",
-                "Brazil holds the record for the most FIFA World Cup titles, with a total of 5 wins.",
-                "The 2022 FIFA World Cup final was held at the Lusail Iconic Stadium in Qatar, which has a seating capacity of 80,000 people."
-            ]
-
-            # Display additional fun facts with numbers and bold formatting
-            for i, fact in enumerate(fun_facts, 1):
-                st.markdown(f"<p style='font-family: Arial; font-size: 16px; color: #6495ED;'><strong>{i}. </strong>{fact}</p>", unsafe_allow_html=True)
+    
+        # Additional Fun Facts
+        show_fun_facts = st.button("Show Fun Facts")
+        if show_fun_facts:
+            st.session_state.show_fun_facts = True
+    
+        if "show_fun_facts" not in st.session_state:
+            st.session_state.show_fun_facts = False
+    
+        if st.session_state.show_fun_facts:
+            with st.expander("", expanded=True):
+                expander_title = "<h2 style='font-family: Arial; font-size: 20px;'>Additional Fun Facts</h2>"
+                st.markdown(expander_title, unsafe_allow_html=True)
+                fun_facts = [
+                    "The fastest goal in FIFA World Cup history was scored by Hakan Şükür of Turkey in 2002, just 11 seconds into the match!",
+                    "Brazil holds the record for the most FIFA World Cup titles, with a total of 5 wins.",
+                    "The 2022 FIFA World Cup final was held at the Lusail Iconic Stadium in Qatar, which has a seating capacity of 80,000 people."
+                ]
+    
+                # Display additional fun facts with numbers and bold formatting
+                for i, fact in enumerate(fun_facts, 1):
+                    st.markdown(f"<p style='font-family: Arial; font-size: 16px; color: #6495ED;'><strong>{i}. </strong>{fact}</p>", unsafe_allow_html=True)
 
     # Conclusion and Surprise Element
     show_conclusion = st.button("Show Conclusion and Surprise Element")
