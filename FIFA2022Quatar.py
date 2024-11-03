@@ -29,6 +29,95 @@ try:
 except ImportError as e:
     st.error(f"TensorFlow import error: {e}")
 
+# Add this after your imports at the top of the file
+
+def create_footer_component():
+    """Create a consistent footer component for all pages"""
+    footer_css = """
+    <style>
+        .footer-container {
+            padding: 20px;
+            margin-top: 40px;
+            background: linear-gradient(45deg, #1e3c72, #2a5298);
+            border-radius: 10px;
+            color: white;
+        }
+        .footer-content {
+            max-width: 800px;
+            margin: 0 auto;
+            text-align: center;
+        }
+        .footer-badge {
+            background: linear-gradient(45deg, #FFD700, #FFA500);
+            color: black;
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-weight: bold;
+            display: inline-block;
+            margin: 5px;
+        }
+        .footer-links a {
+            color: #FFD700;
+            text-decoration: none;
+            margin: 0 10px;
+            font-size: 18px;
+        }
+        .footer-links a:hover {
+            color: #FFA500;
+            text-decoration: underline;
+        }
+        .signature {
+            margin: 20px 0;
+            padding: 10px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 10px;
+            animation: glow 2s ease-in-out infinite alternate;
+        }
+        @keyframes glow {
+            from { box-shadow: 0 0 5px #1e3c72; }
+            to { box-shadow: 0 0 15px #2a5298; }
+        }
+    </style>
+    """
+
+    footer_html = f"""
+    <div class="footer-container">
+        <div class="footer-content">
+            <div class="footer-badge">FIFA World Cup 2022 Data Analysis</div>
+            <div class="signature">
+                <span style="font-size: 20px;">⚽</span> 
+                Created by Jackson Mukeshimana 
+                <span style="font-size: 20px;">⚽</span>
+            </div>
+            <div class="footer-links">
+                <a href="https://github.com/Jackson-Mu" target="_blank">🌟 GitHub</a>
+                <a href="mailto:mukesjackson02@gmail.com">📧 Email</a>
+            </div>
+            <p style="font-size: 12px; margin-top: 10px;">
+                © 2024 | Built with ❤️ using Python & Streamlit
+            </p>
+        </div>
+    </div>
+    """
+    
+    st.markdown(footer_css + footer_html, unsafe_allow_html=True)
+
+# Add this function to handle the credits button
+def show_credits():
+    """Show credits with animation"""
+    col1, col2, col3 = st.columns([1,2,1])
+    with col2:
+        if st.button("🎉 Show Credits", key=f"credits_{st.session_state.app_mode}"):
+            st.balloons()
+            st.markdown("""
+                <div style="text-align: center; padding: 20px; 
+                    background: linear-gradient(45deg, rgba(30,60,114,0.1), rgba(42,82,152,0.1)); 
+                    border-radius: 15px; margin: 20px 0;">
+                    <h2 style="color: #1e3c72;">Special Thanks</h2>
+                    <p>To all football fans and data enthusiasts!</p>
+                    <p style="font-size: 24px;">🏆 ⚽ 📊 🌟</p>
+                </div>
+            """, unsafe_allow_html=True)
 # Load image
 image_quatar2022 = Image.open('quatar2022.jpeg')
 image_quatar2022_2 = Image.open('2022_FIFA_World_Cup_image_2.jpg')
@@ -44,6 +133,8 @@ audio_fifa_5 = "hayya-hayya-better-together-fifa-world-cup-2022-8d-audio-version
 audio_1= "sound_effect.mp3"
 video_intro = "FIFA_World_Cup_2022_Soundtrack.mp4"
 video_concu = "Argentina v France _ FIFA World Cup Qatar 2022.mp4"
+
+
 
 
 st.set_page_config(
@@ -180,6 +271,15 @@ if st.session_state.app_mode == 'Welcome':
             """,
             unsafe_allow_html=True
     )
+
+     # Add spacing before footer
+    st.markdown("<br><br>", unsafe_allow_html=True)
+    
+    # Show credits button
+    show_credits()
+    
+    # Add footer
+    create_footer_component()
 
 
 # Introduction Page
@@ -1686,111 +1786,5 @@ elif st.session_state.app_mode == 'Conclusion':
         st.write('<style>@keyframes balloon-float {0% {transform: translateY(0);} 50% {transform: translateY(-20px);} 100% {transform: translateY(0);}} @keyframes balloon-spin {from {transform: rotate(0deg);} to {transform: rotate(360deg);}}</style>', unsafe_allow_html=True)
 
    
-    # Custom CSS for the footer and personal branding
-    st.markdown("""
-    <style>
-        .footer {
-            position: fixed;
-            bottom: 0;
-            left: 0;
-            width: 100%;
-            background: linear-gradient(45deg, #1e3c72, #2a5298);
-            color: white;
-            padding: 20px 0;
-            text-align: center;
-            font-family: 'Helvetica Neue', sans-serif;
-            z-index: 999;
-        }
-        .author-card {
-            background: rgba(255, 255, 255, 0.1);
-            border-radius: 15px;
-            padding: 15px;
-            margin: 10px auto;
-            max-width: 600px;
-            backdrop-filter: blur(10px);
-            border: 1px solid rgba(255, 255, 255, 0.2);
-        }
-        .social-links {
-            margin-top: 10px;
-        }
-        .social-links a {
-            color: #FFD700;
-            text-decoration: none;
-            margin: 0 10px;
-            font-size: 20px;
-        }
-        .social-links a:hover {
-            color: #FFA500;
-            transform: scale(1.1);
-            transition: all 0.3s ease;
-        }
-        .fifa-badge {
-            background: linear-gradient(45deg, #FFD700, #FFA500);
-            color: black;
-            padding: 5px 15px;
-            border-radius: 20px;
-            font-weight: bold;
-            display: inline-block;
-            margin: 5px;
-        }
-    </style>
     
-    <div class="footer">
-        <div class="author-card">
-            <div class="fifa-badge">FIFA World Cup 2022 Data Analysis</div>
-            <h3>Created by Jackson Mukeshimana</h3>
-            <p>Data Scientist | Football Analytics Enthusiast</p>
-            <div class="social-links">
-                <a href="https://github.com/Jackson-Mu" target="_blank">🌟 GitHub</a>
-                
-                <a href="mailto:mukesjackson02@gmail.com">📧 Email</a>
-            </div>
-            <p style="margin-top: 10px; font-size: 12px;">
-                © 2024 | Built with ❤️ using Python, JavaScript & Streamlit
-            </p>
-        </div>
-    </div>
-    """, unsafe_allow_html=True)
-    
-    # Add an interactive signature animation
-    st.markdown("""
-    <div style="text-align: center; margin-bottom: 100px;">
-        <div style="
-            display: inline-block;
-            padding: 10px 20px;
-            background: linear-gradient(45deg, #1e3c72, #2a5298);
-            border-radius: 10px;
-            color: white;
-            font-family: 'Courier New', monospace;
-            font-size: 16px;
-            animation: glow 2s ease-in-out infinite alternate;
-        ">
-            <span style="font-size: 20px;">⚽</span> 
-            Analyzed by Jackson Mukeshimana 
-            <span style="font-size: 20px;">⚽</span>
-        </div>
-    </div>
-    
-    <style>
-    @keyframes glow {
-        from {
-            box-shadow: 0 0 10px #1e3c72, 0 0 20px #2a5298, 0 0 30px #FFD700;
-        }
-        to {
-            box-shadow: 0 0 20px #1e3c72, 0 0 30px #2a5298, 0 0 40px #FFD700;
-        }
-    }
-    </style>
-    """, unsafe_allow_html=True)
-    
-    # Add a fun interactive element
-    if st.button("🎉 Show Credits"):
-        st.balloons()
-        st.markdown("""
-        <div style="text-align: center; padding: 20px; background: linear-gradient(45deg, rgba(30,60,114,0.1), rgba(42,82,152,0.1)); border-radius: 15px;">
-            <h2 style="color: #1e3c72;">Special Thanks</h2>
-            <p>To all football fans and data enthusiasts!</p>
-            <p style="font-size: 24px;">🏆 ⚽ 📊 🌟</p>
-        </div>
-        """, unsafe_allow_html=True)
 
