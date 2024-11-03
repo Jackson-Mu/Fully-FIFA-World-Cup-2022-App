@@ -560,8 +560,7 @@ elif st.session_state.app_mode == 'Introduction':
         """,
         unsafe_allow_html=True,
     )
-          # Add spacing
-    st.markdown("<br><br>", unsafe_allow_html=True)
+      
     
   
     create_footer_component()
@@ -965,8 +964,7 @@ elif st.session_state.app_mode == 'Visualization':
         random_fact = "Did you know that the FIFA World Cup trophy weighs about 6.175 kilograms (13.61 pounds)?"
         st.markdown(f"<p style='font-family: Georgia; color: #FF0000;'>Here's a random fun fact: {random_fact}</p>", unsafe_allow_html=True)
 
-          # Add spacing
-    st.markdown("<br><br>", unsafe_allow_html=True)
+    
     
 
     create_footer_component()
@@ -1379,8 +1377,7 @@ elif st.session_state.app_mode == 'Prediction':
                         except ValueError as e:
                             st.error(f"Error: {e}. Please ensure all selected variables are numeric.")
 
-      # Add spacing
-    st.markdown("<br><br>", unsafe_allow_html=True)
+   
     
    
     create_footer_component()
@@ -1459,8 +1456,7 @@ elif st.session_state.app_mode == 'Feature of Importance & Shap':
     st.write("Higher magnitude suggests stronger impact on predictions.")
 
 
-      # Add spacing
-    st.markdown("<br><br>", unsafe_allow_html=True)
+   
     
 
     create_footer_component()
@@ -1619,8 +1615,7 @@ elif st.session_state.app_mode == 'MLflow & Deployment':
                 st.session_state.app_mode = 'MLflow & Deployment'
        
 
-      # Add spacing
-    st.markdown("<br><br>", unsafe_allow_html=True)
+
     
 
     create_footer_component()
@@ -1840,8 +1835,7 @@ elif st.session_state.app_mode == 'Conclusion':
         st.write('<style>@keyframes balloon-float {0% {transform: translateY(0);} 50% {transform: translateY(-20px);} 100% {transform: translateY(0);}} @keyframes balloon-spin {from {transform: rotate(0deg);} to {transform: rotate(360deg);}}</style>', unsafe_allow_html=True)
 
    
-          # Add spacing
-    st.markdown("<br><br>", unsafe_allow_html=True)
+      
     
     # Add credits and footer
     show_credits()
