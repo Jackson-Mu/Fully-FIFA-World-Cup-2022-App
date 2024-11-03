@@ -113,7 +113,8 @@ def create_footer_component():
     """
     
     st.markdown(footer_css + footer_html, unsafe_allow_html=True)
-    def show_credits():
+
+def show_credits():
     """Show credits with animation"""
     # Center the button
     col1, col2, col3 = st.columns([1, 2, 1])
