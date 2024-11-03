@@ -28,6 +28,7 @@ try:
     from tensorflow.python.framework import dtypes
 except ImportError as e:
     st.error(f"TensorFlow import error: {e}")
+
 def create_footer_component():
     """Create a consistent footer component for all pages"""
     footer_css = """
@@ -38,7 +39,7 @@ def create_footer_component():
             background: linear-gradient(45deg, #1e3c72, #2a5298);
             border-radius: 10px;
             color: white;
-            width: calc(100% - 40px);  /* Adjusted width */
+            width: calc(100% - 40px);
             margin-left: 20px;
             margin-right: 20px;
             box-sizing: border-box;
@@ -117,7 +118,7 @@ def show_credits():
     """Show credits with animation"""
     if st.button("🎉 Show Credits", key=f"credits_{st.session_state.app_mode}"):
         st.balloons()
-        st.markdown("""
+        credits_html = """
             <div style="
                 text-align: center;
                 padding: 30px;
@@ -140,9 +141,10 @@ def show_credits():
                     Thank you for exploring our FIFA World Cup 2022 Analysis!
                 </div>
             </div>
-        """, unsafe_allow_html=True)
-    
-    st.markdown(footer_css + footer_html, unsafe_allow_html=True)
+        """
+        st.markdown(credits_html, unsafe_allow_html=True)
+
+
 # Load image
 image_quatar2022 = Image.open('quatar2022.jpeg')
 image_quatar2022_2 = Image.open('2022_FIFA_World_Cup_image_2.jpg')
