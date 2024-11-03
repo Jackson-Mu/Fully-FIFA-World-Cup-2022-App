@@ -286,7 +286,7 @@ if st.session_state.app_mode == 'Welcome':
         """
         <div id="welcome-section" class="welcome-text">
             <h2>Welcome to FIFA World Cup 2022 Data Analysis</h2>
-            <p>The FIFA World Cup is the biggest football sports competition where countries from all over the world come together to compete for the most glorious and amazing cup. 🔍 In this app, we're diving into what affects how many goals a team scores in every game during the FIFA World Cup 2022, & Other factors which matters in The Football Match. Why? Well, in football, by scoring more goals often means you're more likely to win the game. Let's explore why that's the case.</p>
+            <p>The FIFA World Cup is the biggest football sports competition where countries from all over the world come together to compete for the most glorious and amazing cup. 🔍 In this app, we're diving into what key action in game likely to increase how many goals a team scores in every game during the FIFA World Cup 2022, & Other factors which matters in The Football Match. Why? Well, in football, by scoring more goals often means you're more likely to win the game. Let's explore why that's the case.</p>
             <p style="font-style: italic;">"Football is about scoring goals." - Pep Guardiola</p>
         </div>
         """,
