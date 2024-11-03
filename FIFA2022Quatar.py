@@ -235,8 +235,10 @@ st.markdown(
         h2 {
             font-size: 36px;
             margin-bottom: 20px;
-            color: #FFD700; /* Gold color */
-            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+            background: linear-gradient(45deg, #FFD700, #FFA500);
+            color: black; 
+
+           
         }
         p {
             font-size: 20px;
