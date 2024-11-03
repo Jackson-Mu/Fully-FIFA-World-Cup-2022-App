@@ -124,63 +124,29 @@ def show_credits():
             credits_html = """
                 <div style="
                     text-align: center;
-                    padding: 50px;
+                    padding: 30px;
                     background: linear-gradient(45deg, rgba(30,60,114,0.1), rgba(42,82,152,0.1));
-                    border-radius: 20px;
-                    margin: 40px auto;
-                    max-width: 1200px;
-                    box-shadow: 0 0 30px rgba(0,0,0,0.15);
+                    border-radius: 15px;
+                    margin: 20px auto;
+                    max-width: 800px;
+                    box-shadow: 0 0 20px rgba(0,0,0,0.1);
                     position: relative;
                     left: 50%;
                     transform: translateX(-50%);
-                    width: calc(100% - 60px);
-                    border: 2px solid rgba(30,60,114,0.2);
+                    width: calc(100% - 40px);
                 ">
-                    <h2 style="
-                        color: #1e3c72; 
-                        font-size: 42px; 
-                        margin-bottom: 30px;
-                        text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
-                    ">Special Thanks</h2>
-                    
-                    <p style="
-                        font-size: 24px; 
-                        color: #333; 
-                        margin: 25px 0;
-                        line-height: 1.6;
-                    ">To all football fans and data enthusiasts!</p>
-                    
-                    <div style="
-                        font-size: 48px; 
-                        margin: 30px 0;
-                        letter-spacing: 15px;
-                    ">🏆 ⚽ 📊 🌟</div>
-                    
+                    <h2 style="color: #1e3c72; font-size: 32px; margin-bottom: 20px;">Special Thanks</h2>
+                    <p style="font-size: 20px; color: #333; margin: 15px 0;">To all football fans and data enthusiasts!</p>
+                    <p style="font-size: 32px; margin: 20px 0;">🏆 ⚽ 📊 🌟</p>
                     <div style="
                         background: linear-gradient(45deg, #1e3c72, #2a5298);
                         color: white;
-                        padding: 25px 40px;
-                        border-radius: 15px;
+                        padding: 15px;
+                        border-radius: 10px;
                         display: inline-block;
-                        margin-top: 25px;
-                        font-size: 22px;
-                        box-shadow: 0 4px 15px rgba(0,0,0,0.2);
-                        transform: scale(1);
-                        transition: transform 0.3s ease;
+                        margin-top: 15px;
                     ">
                         Thank you for exploring our FIFA World Cup 2022 Analysis!
-                    </div>
-                    
-                    <div style="
-                        margin-top: 40px;
-                        padding: 20px;
-                        background: rgba(255,255,255,0.1);
-                        border-radius: 12px;
-                        font-size: 20px;
-                        color: #1e3c72;
-                    ">
-                        <p style="margin: 10px 0;">Your interest and engagement make this project special!</p>
-                        <p style="margin: 10px 0;">Keep exploring the beautiful game through data 🎯</p>
                     </div>
                 </div>
             """
