@@ -28,7 +28,6 @@ try:
     from tensorflow.python.framework import dtypes
 except ImportError as e:
     st.error(f"TensorFlow import error: {e}")
-
 def create_footer_component():
     """Create a consistent footer component for all pages"""
     footer_css = """
@@ -39,18 +38,16 @@ def create_footer_component():
             background: linear-gradient(45deg, #1e3c72, #2a5298);
             border-radius: 10px;
             color: white;
-            width: calc(100% + 40px);  /* Adjusted width */
-            margin-left: -20px;        /* Adjusted margin */
-            margin-right: -20px;       /* Adjusted margin */
+            width: calc(100% - 40px);  /* Adjusted width */
+            margin-left: 20px;
+            margin-right: 20px;
             box-sizing: border-box;
-            position: relative;
         }
         .footer-content {
-            max-width: 100%;           /* Use full width */
+            width: 100%;
             margin: 0 auto;
             text-align: center;
             padding: 0 20px;
-            box-sizing: border-box;
         }
         .footer-badge {
             background: linear-gradient(45deg, #FFD700, #FFA500);
@@ -63,17 +60,15 @@ def create_footer_component():
             font-size: 18px;
         }
         .footer-links {
-            display: flex;
-            justify-content: center;
-            gap: 30px;                 /* Space between links */
             margin: 15px 0;
         }
         .footer-links a {
             color: #FFD700;
             text-decoration: none;
+            margin: 0 15px;
             font-size: 20px;
-            padding: 5px 10px;
             display: inline-block;
+            padding: 5px 10px;
         }
         .footer-links a:hover {
             color: #FFA500;
@@ -82,37 +77,21 @@ def create_footer_component():
             transition: all 0.3s ease;
         }
         .signature {
-            margin: 25px auto;         /* Center horizontally */
+            margin: 25px 0;
             padding: 15px;
             background: rgba(255, 255, 255, 0.1);
             border-radius: 15px;
             animation: glow 2s ease-in-out infinite alternate;
             font-size: 20px;
-            max-width: 80%;            /* Limit width for better appearance */
         }
         @keyframes glow {
             from { box-shadow: 0 0 8px #1e3c72; }
             to { box-shadow: 0 0 20px #2a5298; }
         }
-        @media (max-width: 768px) {    /* Responsive adjustments */
-            .footer-container {
-                width: 100%;
-                margin-left: 0;
-                margin-right: 0;
-                border-radius: 0;
-            }
-            .signature {
-                max-width: 95%;
-            }
-            .footer-links {
-                flex-direction: column;
-                gap: 15px;
-            }
-        }
     </style>
     """
 
-    footer_html = f"""
+    footer_html = """
     <div class="footer-container">
         <div class="footer-content">
             <div class="footer-badge">FIFA World Cup 2022 Data Analysis</div>
@@ -131,6 +110,37 @@ def create_footer_component():
         </div>
     </div>
     """
+    
+    st.markdown(footer_css + footer_html, unsafe_allow_html=True)
+
+def show_credits():
+    """Show credits with animation"""
+    if st.button("🎉 Show Credits", key=f"credits_{st.session_state.app_mode}"):
+        st.balloons()
+        st.markdown("""
+            <div style="
+                text-align: center;
+                padding: 30px;
+                background: linear-gradient(45deg, rgba(30,60,114,0.1), rgba(42,82,152,0.1));
+                border-radius: 15px;
+                margin: 20px 20px;
+                box-shadow: 0 0 20px rgba(0,0,0,0.1);
+            ">
+                <h2 style="color: #1e3c72; font-size: 32px; margin-bottom: 20px;">Special Thanks</h2>
+                <p style="font-size: 20px; color: #333; margin: 15px 0;">To all football fans and data enthusiasts!</p>
+                <p style="font-size: 32px; margin: 20px 0;">🏆 ⚽ 📊 🌟</p>
+                <div style="
+                    background: linear-gradient(45deg, #1e3c72, #2a5298);
+                    color: white;
+                    padding: 15px;
+                    border-radius: 10px;
+                    display: inline-block;
+                    margin-top: 15px;
+                ">
+                    Thank you for exploring our FIFA World Cup 2022 Analysis!
+                </div>
+            </div>
+        """, unsafe_allow_html=True)
     
     st.markdown(footer_css + footer_html, unsafe_allow_html=True)
 # Load image
@@ -287,13 +297,11 @@ if st.session_state.app_mode == 'Welcome':
             unsafe_allow_html=True
     )
 
-     # Add spacing before footer
+      # Add spacing
     st.markdown("<br><br>", unsafe_allow_html=True)
     
-    # Show credits button
+    # Add credits and footer
     show_credits()
-    
-    # Add footer
     create_footer_component()
 
 
