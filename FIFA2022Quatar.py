@@ -474,49 +474,7 @@ elif st.session_state.app_mode == 'Introduction':
             st.write(filtered_df_team2)
 
 
-    # User Feedback Integration
-    st.sidebar.title('User Feedback')
-    
-    # Create form using HTML with your specific Formspree URL
-    feedback_form = """
-    <form action="https://formspree.io/f/xkgnjkay" method="POST">
-        <input type="email" name="email" placeholder="Your email" required>
-        <br><br>
-        <textarea name="message" placeholder="Your feedback" required></textarea>
-        <br><br>
-        <button type="submit">Send Feedback</button>
-    </form>
-    
-    <style>
-        input[type=email], textarea {
-            width: 100%;
-            padding: 12px;
-            border: 1px solid #ccc;
-            border-radius: 4px;
-            box-sizing: border-box;
-            margin-top: 6px;
-            margin-bottom: 16px;
-        }
-        textarea {
-            height: 100px;
-            resize: vertical;
-        }
-        button[type=submit] {
-            background-color: #04AA6D;
-            color: white;
-            padding: 12px 20px;
-            border: none;
-            border-radius: 4px;
-            cursor: pointer;
-            width: 100%;
-        }
-        button[type=submit]:hover {
-            background-color: #45a049;
-        }
-    </style>
-    """
-    
-    st.sidebar.markdown(feedback_form, unsafe_allow_html=True)
+   
 
 
     # Convert categorical columns to numeric codes
@@ -1649,7 +1607,49 @@ elif st.session_state.app_mode == 'Conclusion':
 
     st.sidebar.audio(audio_fifa, format='audio/mp3')
 
-
+     # User Feedback Integration
+    st.sidebar.title('User Feedback')
+    
+    # Create form using HTML with your specific Formspree URL
+    feedback_form = """
+    <form action="https://formspree.io/f/xkgnjkay" method="POST">
+        <input type="email" name="email" placeholder="Your email" required>
+        <br><br>
+        <textarea name="message" placeholder="Your feedback" required></textarea>
+        <br><br>
+        <button type="submit">Send Feedback</button>
+    </form>
+    
+    <style>
+        input[type=email], textarea {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-sizing: border-box;
+            margin-top: 6px;
+            margin-bottom: 16px;
+        }
+        textarea {
+            height: 100px;
+            resize: vertical;
+        }
+        button[type=submit] {
+            background-color: #04AA6D;
+            color: white;
+            padding: 12px 20px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            width: 100%;
+        }
+        button[type=submit]:hover {
+            background-color: #45a049;
+        }
+    </style>
+    """
+    
+    st.sidebar.markdown(feedback_form, unsafe_allow_html=True)
 
     st.video(video_concu, format='video/mp4')
 
