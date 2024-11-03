@@ -106,7 +106,7 @@ def create_footer_component():
                 <a href="mailto:mukesjackson02@gmail.com">📧 Email</a>
             </div>
             <p style="font-size: 14px; margin-top: 15px;">
-                © 2024 | Built with ❤️ using Python, HTML, Javascriptt & Streamlit
+                © 2024 | Built with ❤️ using  Python,  HTML,  Javascript &  Streamlit
             </p>
         </div>
     </div>
