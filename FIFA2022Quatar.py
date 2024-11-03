@@ -35,7 +35,7 @@ def create_footer_component():
     <style>
         .footer-container {
             padding: 20px;
-            margin-top: 30px;
+            margin-top: 20px;
             background: linear-gradient(45deg, #1e3c72, #2a5298);
             border-radius: 10px;
             color: white;
@@ -121,9 +121,11 @@ def show_credits():
         credits_html = """
             <div style="
                 text-align: center;
+                 margin-top: 10px;
                 padding: 30px;
                 background: linear-gradient(45deg, rgba(30,60,114,0.1), rgba(42,82,152,0.1));
                 border-radius: 15px;
+               
                 margin: 20px 20px;
                 box-shadow: 0 0 20px rgba(0,0,0,0.1);
             ">
