@@ -121,7 +121,7 @@ def show_credits():
         credits_html = """
             <div style="
                 text-align: center;
-                 margin-top: 10px;
+                
                 padding: 30px;
                 background: linear-gradient(45deg, rgba(30,60,114,0.1), rgba(42,82,152,0.1));
                 border-radius: 15px;
