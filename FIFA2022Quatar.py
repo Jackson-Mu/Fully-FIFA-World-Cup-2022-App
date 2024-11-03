@@ -112,7 +112,7 @@ def create_footer_component():
     </div>
     """
     
-    st.markdown(footer_css + footer_html, unsafe_allow_html=True)
+  
 
 def show_credits():
     """Show credits with animation"""
