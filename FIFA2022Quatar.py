@@ -1608,7 +1608,7 @@ elif st.session_state.app_mode == 'Conclusion':
     st.sidebar.audio(audio_fifa, format='audio/mp3')
 
      # User Feedback Integration
-    st.sidebar.title('User Feedback')
+    st.sidebar.subheader('Got Feedback? Would love to hear from you!')
     
     # Create form using HTML with your specific Formspree URL
     feedback_form = """
