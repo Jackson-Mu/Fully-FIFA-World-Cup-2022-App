@@ -312,8 +312,7 @@ if st.session_state.app_mode == 'Welcome':
       # Add spacing
     st.markdown("<br><br>", unsafe_allow_html=True)
     
-    # Add credits and footer
-    show_credits()
+  
     create_footer_component()
 
 
@@ -565,8 +564,7 @@ elif st.session_state.app_mode == 'Introduction':
           # Add spacing
     st.markdown("<br><br>", unsafe_allow_html=True)
     
-    # Add credits and footer
-    show_credits()
+  
     create_footer_component()
 
 
@@ -971,8 +969,7 @@ elif st.session_state.app_mode == 'Visualization':
           # Add spacing
     st.markdown("<br><br>", unsafe_allow_html=True)
     
-    # Add credits and footer
-    show_credits()
+
     create_footer_component()
 
 
@@ -1386,8 +1383,7 @@ elif st.session_state.app_mode == 'Prediction':
       # Add spacing
     st.markdown("<br><br>", unsafe_allow_html=True)
     
-    # Add credits and footer
-    show_credits()
+   
     create_footer_component()
     
 elif st.session_state.app_mode == 'Feature of Importance & Shap':
@@ -1467,8 +1463,7 @@ elif st.session_state.app_mode == 'Feature of Importance & Shap':
       # Add spacing
     st.markdown("<br><br>", unsafe_allow_html=True)
     
-    # Add credits and footer
-    show_credits()
+
     create_footer_component()
 elif st.session_state.app_mode == 'MLflow & Deployment':
     from sklearn.model_selection import train_test_split, GridSearchCV
@@ -1628,8 +1623,7 @@ elif st.session_state.app_mode == 'MLflow & Deployment':
       # Add spacing
     st.markdown("<br><br>", unsafe_allow_html=True)
     
-    # Add credits and footer
-    show_credits()
+
     create_footer_component()
 
 # Conclusion Page
