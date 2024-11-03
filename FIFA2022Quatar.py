@@ -518,7 +518,7 @@ elif st.session_state.app_mode == 'Introduction':
     
     st.sidebar.markdown(feedback_form, unsafe_allow_html=True)
 
-    st.sidebar.success("Your feedback has been submitted and sent to the admins.")
+
     # Convert categorical columns to numeric codes
     df['team1'] = df['team1'].astype('category').cat.codes
     df['team2'] = df['team2'].astype('category').cat.codes
