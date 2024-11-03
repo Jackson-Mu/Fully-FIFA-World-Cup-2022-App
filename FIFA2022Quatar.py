@@ -639,18 +639,38 @@ elif st.session_state.app_mode == 'Visualization':
     else:
         st.warning("No valid variable selected for the box plot.")
 
-    # Bar plot
+   # Bar plot
     st.subheader('Bar Plot')
-
+    
     # Interactive Selection: Allow users to select specific variables
     bar_independent_default = 'free kicks team2'
     bar_dependent_default = 'number of goals team2'
-    independent_variable_bar = st.selectbox("Select Independent Variable", df.columns[:-1], index=df.columns.get_loc(bar_independent_default) if bar_independent_default in df.columns else 0, key='bar_independent')
-    dependent_variable_bar = st.selectbox("Select Dependent Variable", df.columns[:-1], index=df.columns.get_loc(bar_dependent_default) if bar_dependent_default in df.columns else 0, key='bar_dependent')
-
+    
+    # Safe selection of default indices
+    def get_safe_index(columns, default_value):
+        try:
+            return list(columns).index(default_value) if default_value in columns else 0
+        except (ValueError, TypeError):
+            return 0
+    
+    # Create selectboxes with safe index selection
+    independent_variable_bar = st.selectbox(
+        "Select Independent Variable",
+        options=df.columns[:-1],
+        index=get_safe_index(df.columns[:-1], bar_independent_default),
+        key='bar_independent'
+    )
+    
+    dependent_variable_bar = st.selectbox(
+        "Select Dependent Variable",
+        options=df.columns[:-1],
+        index=get_safe_index(df.columns[:-1], bar_dependent_default),
+        key='bar_dependent'
+    )
+    
     # Color Palette Customization: Allow users to choose different color palettes
     palette_bar = st.radio("Select Color Palette", ["viridis", "magma", "plasma", "inferno", "coolwarm"], key='bar_color_palette')
-
+    
     # Create bar plot function
     def create_bar_plot(data, x, y, palette):
         fig_bar, ax_bar = plt.subplots()
@@ -661,10 +681,10 @@ elif st.session_state.app_mode == 'Visualization':
         plt.xticks(rotation=45)
         plt.tight_layout()
         st.pyplot(fig_bar)
-
+    
     # Display initial bar plot
     create_bar_plot(df, independent_variable_bar, dependent_variable_bar, palette_bar)
-
+    
     # Show interactive sorting option
     if st.checkbox('Sort Values', key='sort_checkbox'):
         sort_order_bar = st.radio("Select sort order", ["ascending", "descending"], index=1, key='sort_order_radio')
@@ -673,18 +693,17 @@ elif st.session_state.app_mode == 'Visualization':
         else:
             df_sorted_bar = df.sort_values(by=dependent_variable_bar, ascending=False)
         create_bar_plot(df_sorted_bar, independent_variable_bar, dependent_variable_bar, palette_bar)
-
+    
     # Dynamic Thresholding: Allow users to adjust threshold for displaying bar plot
     min_value_bar = float(df[dependent_variable_bar].min())  # Convert min_value to float
     max_value_bar = float(df[dependent_variable_bar].max())  # Convert max_value to float
     value_bar = float(df[dependent_variable_bar].mean())     # Convert value to float
     step_bar = 0.1  # Set step as a float
     threshold_bar = st.slider('Threshold for Bar Plot', min_value=min_value_bar, max_value=max_value_bar, value=value_bar, step=step_bar, key='threshold_slider')
-
+    
     # Play sound effect when plot is generated
     if st.button("Generate Bar Plot"):
         play_sound()
-
     import random  # Import the random module
 
     # Additional graphs
