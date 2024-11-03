@@ -113,38 +113,44 @@ def create_footer_component():
     """
     
     st.markdown(footer_css + footer_html, unsafe_allow_html=True)
-
 def show_credits():
     """Show credits with animation"""
-    if st.button("🎉 Show Credits", key=f"credits_{st.session_state.app_mode}"):
-        st.balloons()
-        credits_html = """
-            <div style="
-                text-align: center;
-                
-                padding: 30px;
-                background: linear-gradient(45deg, rgba(30,60,114,0.1), rgba(42,82,152,0.1));
-                border-radius: 15px;
-               
-                margin: 20px 20px;
-                box-shadow: 0 0 20px rgba(0,0,0,0.1);
-            ">
-                <h2 style="color: #1e3c72; font-size: 32px; margin-bottom: 20px;">Special Thanks</h2>
-                <p style="font-size: 20px; color: #333; margin: 15px 0;">To all football fans and data enthusiasts!</p>
-                <p style="font-size: 32px; margin: 20px 0;">🏆 ⚽ 📊 🌟</p>
+    # Center the button
+    col1, col2, col3 = st.columns([1, 2, 1])
+    with col2:
+        if st.button("🎉 Show Credits", key=f"credits_{st.session_state.app_mode}"):
+            st.balloons()
+            credits_html = """
                 <div style="
-                    background: linear-gradient(45deg, #1e3c72, #2a5298);
-                    color: white;
-                    padding: 15px;
-                    border-radius: 10px;
-                    display: inline-block;
-                    margin-top: 15px;
+                    text-align: center;
+                    padding: 30px;
+                    background: linear-gradient(45deg, rgba(30,60,114,0.1), rgba(42,82,152,0.1));
+                    border-radius: 15px;
+                    margin: 20px auto;
+                    max-width: 800px;
+                    box-shadow: 0 0 20px rgba(0,0,0,0.1);
+                    position: relative;
+                    left: 50%;
+                    transform: translateX(-50%);
+                    width: calc(100% - 40px);
                 ">
-                    Thank you for exploring our FIFA World Cup 2022 Analysis!
+                    <h2 style="color: #1e3c72; font-size: 32px; margin-bottom: 20px;">Special Thanks</h2>
+                    <p style="font-size: 20px; color: #333; margin: 15px 0;">To all football fans and data enthusiasts!</p>
+                    <p style="font-size: 32px; margin: 20px 0;">🏆 ⚽ 📊 🌟</p>
+                    <div style="
+                        background: linear-gradient(45deg, #1e3c72, #2a5298);
+                        color: white;
+                        padding: 15px;
+                        border-radius: 10px;
+                        display: inline-block;
+                        margin-top: 15px;
+                    ">
+                        Thank you for exploring our FIFA World Cup 2022 Analysis!
+                    </div>
                 </div>
-            </div>
-        """
-        st.markdown(credits_html, unsafe_allow_html=True)
+            """
+            st.markdown(credits_html, unsafe_allow_html=True)
+
 
 
 # Load image
