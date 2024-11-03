@@ -30,7 +30,6 @@ except ImportError as e:
     st.error(f"TensorFlow import error: {e}")
 
 # Add this after your imports at the top of the file
-
 def create_footer_component():
     """Create a consistent footer component for all pages"""
     footer_css = """
@@ -41,41 +40,55 @@ def create_footer_component():
             background: linear-gradient(45deg, #1e3c72, #2a5298);
             border-radius: 10px;
             color: white;
+            width: 100vw;
+            margin-left: calc(-50vw + 50%);
+            margin-right: calc(-50vw + 50%);
+            position: relative;
+            left: 50%;
+            right: 50%;
+            transform: translateX(-50%);
         }
         .footer-content {
-            max-width: 800px;
+            max-width: 1200px;  /* Increased from 800px */
             margin: 0 auto;
             text-align: center;
+            padding: 0 20px;
         }
         .footer-badge {
             background: linear-gradient(45deg, #FFD700, #FFA500);
             color: black;
-            padding: 5px 15px;
+            padding: 8px 20px;  /* Slightly increased padding */
             border-radius: 20px;
             font-weight: bold;
             display: inline-block;
-            margin: 5px;
+            margin: 10px;
+            font-size: 18px;  /* Increased font size */
         }
         .footer-links a {
             color: #FFD700;
             text-decoration: none;
-            margin: 0 10px;
-            font-size: 18px;
+            margin: 0 15px;  /* Increased margin */
+            font-size: 20px;  /* Increased font size */
+            display: inline-block;
+            padding: 5px 10px;
         }
         .footer-links a:hover {
             color: #FFA500;
             text-decoration: underline;
+            transform: scale(1.1);
+            transition: all 0.3s ease;
         }
         .signature {
-            margin: 20px 0;
-            padding: 10px;
+            margin: 25px 0;
+            padding: 15px;
             background: rgba(255, 255, 255, 0.1);
-            border-radius: 10px;
+            border-radius: 15px;
             animation: glow 2s ease-in-out infinite alternate;
+            font-size: 20px;  /* Increased font size */
         }
         @keyframes glow {
-            from { box-shadow: 0 0 5px #1e3c72; }
-            to { box-shadow: 0 0 15px #2a5298; }
+            from { box-shadow: 0 0 8px #1e3c72; }
+            to { box-shadow: 0 0 20px #2a5298; }
         }
     </style>
     """
@@ -85,15 +98,15 @@ def create_footer_component():
         <div class="footer-content">
             <div class="footer-badge">FIFA World Cup 2022 Data Analysis</div>
             <div class="signature">
-                <span style="font-size: 20px;">⚽</span> 
+                <span style="font-size: 24px;">⚽</span> 
                 Created by Jackson Mukeshimana 
-                <span style="font-size: 20px;">⚽</span>
+                <span style="font-size: 24px;">⚽</span>
             </div>
             <div class="footer-links">
                 <a href="https://github.com/Jackson-Mu" target="_blank">🌟 GitHub</a>
                 <a href="mailto:mukesjackson02@gmail.com">📧 Email</a>
             </div>
-            <p style="font-size: 12px; margin-top: 10px;">
+            <p style="font-size: 14px; margin-top: 15px;">
                 © 2024 | Built with ❤️ using Python & Streamlit
             </p>
         </div>
@@ -102,22 +115,39 @@ def create_footer_component():
     
     st.markdown(footer_css + footer_html, unsafe_allow_html=True)
 
-# Add this function to handle the credits button
 def show_credits():
     """Show credits with animation"""
-    col1, col2, col3 = st.columns([1,2,1])
-    with col2:
-        if st.button("🎉 Show Credits", key=f"credits_{st.session_state.app_mode}"):
-            st.balloons()
-            st.markdown("""
-                <div style="text-align: center; padding: 20px; 
-                    background: linear-gradient(45deg, rgba(30,60,114,0.1), rgba(42,82,152,0.1)); 
-                    border-radius: 15px; margin: 20px 0;">
-                    <h2 style="color: #1e3c72;">Special Thanks</h2>
-                    <p>To all football fans and data enthusiasts!</p>
-                    <p style="font-size: 24px;">🏆 ⚽ 📊 🌟</p>
+    # Use full width for credits
+    if st.button("🎉 Show Credits", key=f"credits_{st.session_state.app_mode}"):
+        st.balloons()
+        st.markdown("""
+            <div style="
+                text-align: center;
+                padding: 30px;
+                background: linear-gradient(45deg, rgba(30,60,114,0.1), rgba(42,82,152,0.1));
+                border-radius: 15px;
+                margin: 20px -20px;
+                width: 100vw;
+                position: relative;
+                left: 50%;
+                transform: translateX(-50%);
+                box-shadow: 0 0 20px rgba(0,0,0,0.1);
+            ">
+                <h2 style="color: #1e3c72; font-size: 32px; margin-bottom: 20px;">Special Thanks</h2>
+                <p style="font-size: 20px; color: #333; margin: 15px 0;">To all football fans and data enthusiasts!</p>
+                <p style="font-size: 32px; margin: 20px 0;">🏆 ⚽ 📊 🌟</p>
+                <div style="
+                    background: linear-gradient(45deg, #1e3c72, #2a5298);
+                    color: white;
+                    padding: 15px;
+                    border-radius: 10px;
+                    display: inline-block;
+                    margin-top: 15px;
+                ">
+                    Thank you for exploring our FIFA World Cup 2022 Analysis!
                 </div>
-            """, unsafe_allow_html=True)
+            </div>
+        """, unsafe_allow_html=True)
 # Load image
 image_quatar2022 = Image.open('quatar2022.jpeg')
 image_quatar2022_2 = Image.open('2022_FIFA_World_Cup_image_2.jpg')
