@@ -98,7 +98,7 @@ def create_footer_component():
             <div class="footer-badge">FIFA World Cup 2022 Data Analysis</div>
             <div class="signature">
                 <span style="font-size: 24px;">⚽</span> 
-                Created by Jackson Mukeshimana 
+                Created by Jackson-Mu 
                 <span style="font-size: 24px;">⚽</span>
             </div>
             <div class="footer-links">
