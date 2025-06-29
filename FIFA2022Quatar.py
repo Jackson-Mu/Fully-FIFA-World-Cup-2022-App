@@ -273,6 +273,22 @@ st.markdown(
     unsafe_allow_html=True
 )
 
+# CSS overrides for light/dark mode compatibility
+st.markdown(
+    """
+    <style>
+        .welcome-text {
+            color: var(--textColor) !important;
+            background-color: var(--secondaryBackgroundColor) !important;
+        }
+        p {
+            color: var(--textColor) !important;
+        }
+    </style>
+    """,
+    unsafe_allow_html=True
+)
+
 # Welcome page content
 if st.session_state.app_mode == 'Welcome':
     # Sidebar content for Welcome page
