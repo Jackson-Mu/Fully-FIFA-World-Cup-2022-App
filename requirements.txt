@@ -21,3 +21,6 @@ codecarbon>=2.3.3,<3.0
 
 # Packaging
 setuptools>=69.0.3
+# Add seaborn and shap for missing dependencies
+seaborn>=0.12.2,<1.0
+shap>=0.41.0,<1.0

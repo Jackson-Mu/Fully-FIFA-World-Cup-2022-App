@@ -1,3 +1,7 @@
 [theme]
 base = "dark"
 primaryColor = "purple"
+
+# Disable CORS to allow front-end event calls
+[server]
+enableCORS = false
