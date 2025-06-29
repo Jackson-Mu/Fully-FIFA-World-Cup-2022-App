@@ -286,7 +286,7 @@ if st.session_state.app_mode == 'Welcome':
         """
         <div id="welcome-section" class="welcome-text">
             <h2>Welcome to FIFA World Cup 2022 Data Analysis</h2>
-            <p>The FIFA World Cup is the biggest football sports competition where countries from all over the world come together to compete for the most glorious and amazing cup. 🔍 In this app, we're diving into what key action in game likely to increase how many goals a team scores in every game during the FIFA World Cup 2022, & Other factors which matters in The Football Match. Why? Well, in football, by scoring more goals often means you're more likely to win the game. Let's explore why that's the case.</p>
+            <p>Explore key data-driven insights into what drives goal scoring at the FIFA World Cup 2022 through interactive visualizations, predictive models, and feature explainability.</p>
             <p style="font-style: italic;">"Football is about scoring goals." - Pep Guardiola</p>
         </div>
         """,
@@ -955,7 +955,7 @@ elif st.session_state.app_mode == 'Prediction':
     st.sidebar.markdown("<p style='font-family: Impact; font-size: 16px; color: #007ACC;'>🎵 Enjoy the below chosen FIFA World Cup song for you! 🎶 Feel free to adjust the volume or stop the song whenever you want. 🎧</p>", unsafe_allow_html=True)
 
     st.sidebar.audio(audio_fifa_4, format='audio/mp3')
-    st.image(image_featured, use_column_width=True)
+    st.image(image_featured, use_container_width=True)
     st.title("FIFA World Cup 2022 Data Analysis - Prediction")
     st.markdown("Select a machine learning model and variables to predict outcomes.")
 
@@ -1451,7 +1451,7 @@ elif st.session_state.app_mode == 'MLflow & Deployment':
 
 
     st.sidebar.audio(audio_fifa_4, format='audio/mp3', start_time=0)
-    st.image(image_quatar2022_2, use_column_width=True)
+    st.image(image_quatar2022_2, use_container_width=True)
     st.title("MLflow & Deployment")
 
     df = pd.read_csv('FIFAWorldCup2022.csv')
