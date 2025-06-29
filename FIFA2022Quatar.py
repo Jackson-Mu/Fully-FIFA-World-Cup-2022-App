@@ -181,6 +181,12 @@ st.set_page_config(
     initial_sidebar_state="expanded",
 )
 
+# Warn light-mode users to switch for optimal experience
+try:
+    if st.get_option("theme.base") == "light":
+        st.warning("For the best viewing experience, please switch to Dark Mode in the ⚙️ Settings menu.")
+except:
+    pass
 
 st.title("FIFA World Cup 2022 Data Analysis")
 # Initialize session state
@@ -282,6 +288,13 @@ st.markdown(
             background-color: var(--secondaryBackgroundColor) !important;
         }
         p {
+            color: var(--textColor) !important;
+        }
+        /* Sidebar theming for light/dark mode */
+        [data-testid="stSidebar"] {
+            background-color: var(--secondaryBackgroundColor) !important;
+        }
+        [data-testid="stSidebar"] * {
             color: var(--textColor) !important;
         }
     </style>
